@@ -1,0 +1,43 @@
+{% extends '::layout.html.twig' %}
+
+{% block body -%}
+    <h1>DocumentStage list</h1>
+
+    <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Path</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in documentsStage %}
+            <tr>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.path }}</td>
+                <td>
+                 <ul>
+                     {% if is_granted('ROLE_STAGE') %}
+                    <li>
+                        <a class="icon-remove" href="{{ path('documentstage_delete', { 'id': entity.id }) }}"></a>
+                    </li>
+                    <li>
+                        <a class="icon-pencil" href="{{ path('documentstage_edit', { 'id': entity.id }) }}"></a>
+                    </li>
+                    {% endif %}
+                    <li><a class="icon-download-alt" href="{{ path('documentstage_download', { 'path': entity.path }) }}"></a></li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('documentstage_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

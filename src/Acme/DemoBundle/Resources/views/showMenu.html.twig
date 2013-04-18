@@ -1,0 +1,44 @@
+{% extends '::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Document list</h1>
+
+    <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Path</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in documents %}
+            <tr>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.path }}</td>
+                <td>
+                <ul>
+                    {% if is_granted('ROLE_SCOL') %}
+                    <li>
+                        <a class="icon-remove" href="{{ path('document_delete', { 'id': entity.id }) }}"></a>
+                    </li>
+                    <li>
+                        <a class="icon-pencil" href="{{ path('document_edit', { 'id': entity.id }) }}"></a>
+                    </li>
+                    {% endif %}
+                    <li><a class="icon-download-alt" href="{{ path('document_download', { 'path': entity.path }) }}"></a></li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('document_new') }}">
+                Ajouter document
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

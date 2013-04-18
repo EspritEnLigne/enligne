@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> {% block title %}ESPRIT{% endblock %}</title>
+    {% block stylesheets %}
+      <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
+   
+    {% endblock %}
+  </head>
+  <body>
+       <div class="container">
+      <div class="navbar navbar-fixed-top">
+          <div class="navbar">
+              <div class="navbar-inner">
+                 
+
+
+                  <a class="brand" href="#"><img src="{{ asset('img/logo.png') }}"></a>
+                     {{ render(controller('AcmeDemoBundle:Demo:menu', { 'max': 3 })) }}
+
+                     {# <form class="navbar-search pull-left">
+                         <input type="text" class="search-query" placeholder="Search">
+                          
+                      </form>#}
+                  </div>
+
+              </div>
+          </div>
+               
+      </div>
+      <div id="header" class="hero-unit">
+            <div id="myCarousel" class="carousel slide">
+                   <ol class="carousel-indicators">
+                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                       <li data-target="#myCarousel" data-slide-to="1"></li>
+                       <li data-target="#myCarousel" data-slide-to="2"></li>
+                   </ol>
+                   <!-- Carousel items -->
+                   <div class="carousel-inner">
+                       
+                       <div class="active item"><center><img src="{{ asset('img/eesprit.jpg') }}" /></center></div>
+                       <div class="item"><center><img src="{{ asset('img/esprit.bmp') }}" /></center></div>
+                       <div class="item"><center><img src="{{ asset('img/espritprepa.bmp') }}" /></center></div>
+                   </div>
+                   <!-- Carousel nav -->
+                  
+                   <a class="carousel-control left" href="myCarousel" data-slide="prev">&lsaquo;</a>
+                   <a class="carousel-control right" href="myCarousel" data-slide="next">&rsaquo;</a>
+               </div>
+          
+      
+      </div>
+          <div style="margin-left: 10%;margin-right: 10%;">
+          {% block body %}
+        
+      
+          {% endblock %}
+      </div>
+  {% block javascripts %}
+    {# Ajoutez ces javascripts si vous comptez vous servir des
+fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+  {% endblock %}
+  </body>
+
+</html>

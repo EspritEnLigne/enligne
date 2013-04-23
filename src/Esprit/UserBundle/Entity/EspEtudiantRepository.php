@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class EspEtudiantRepository extends EntityRepository
 {
+        public function getEtudiantCourant($id) {
+        return $this->_em->createQuery('
+        SELECT
+            e
+        FROM
+            EspritUserBundle:EspEtudiant e
+        WHERE
+            e.id = :etudiant_id
+    ')->setParameter('etudiant_id', $id)
+            ->getResult();
+    }
+
 }

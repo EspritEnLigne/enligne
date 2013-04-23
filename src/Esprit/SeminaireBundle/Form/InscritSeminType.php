@@ -10,25 +10,37 @@ use Symfony\Component\HttpFoundation\Response;
 use Esprit\SeminaireBundle\Entity;
 
 class InscritSeminType extends AbstractType {
-
+private $seminLib;
+ 
+    public function __construct($seminLib)
+    {
+        $this->seminLib = $seminLib;
+    }
 
     //$id = $this->get('security.context')->getToken()->getUser()->getTest();
     public function buildForm(FormBuilderInterface $builder, array $options) {
 
         $builder
                 //->add('dateInscrit')
-                ->add('seminaire','entity', array(
-                    'class' => 'EspritSeminaireBundle:Seminaire',
-                'query_builder' => function($repository)use ($id) {
-                    return $repository->getSeminaireLibre('id')
-                        ->setParameter('id', $id)
-                            ;
-                },
+                ->add('seminaire','choice', array(
+                    'choices' => $this->seminLib, 'data' => 1
+                    ))
+                        //->add('mode_encaissement', 'choice', array(
+//                        'choices' => $this->modeEncaissements, 'data' => 1))
+//                        ,'entity', array(
+//                    'class' => 'EspritSeminaireBundle:Seminaire',
+//                'query_builder' => function($repository)use ($id) {
+//                    return $repository->getSeminaireLibre('id')
+//                        ->setParameter('id', $id)
+//                            ;
+//                },
+//                        
+//                        
+//            'required' => false,
+//            
+//                        )
                         
                         
-            'required' => false,
-            
-                        ))
         //->add('etudiant')
         ;
     }

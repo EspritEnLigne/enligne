@@ -1,6 +1,6 @@
 parameters:
     database_driver:   oci8
-    database_host:     abdelaziz-TOSH
+    database_host:     localhost
     database_port:     1521
     database_name:     XE
     database_user:     esprit

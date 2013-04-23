@@ -1,7 +1,6 @@
 {% extends '::layout.html.twig' %}
 
 {% block body -%}
-    <h1>DocumentStage list</h1>
 
     <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
         <thead>
@@ -26,18 +25,21 @@
                     </li>
                     {% endif %}
                     <li><a class="icon-download-alt" href="{{ path('documentstage_download', { 'path': entity.path }) }}"></a></li>
+                    <li><a class="embed" href="#" onclick="Popup=window.open('../../../../../web/uploads/documents/{{ entity.path }}','Popup','toolbar=yes, location=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=420,height=400,left=430,top=23')">read</a></li>
                 </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
+        <div id="somediv"></div>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('documentstage_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+<script type="text/javascript">
+    //$.noConflict();
+jQuery(document).ready(function($){
+function openDialog(url) {
+       jQuery("#somediv").load(url).dialog({modal: true});
+    }
+    });
+</script>
     {% endblock %}

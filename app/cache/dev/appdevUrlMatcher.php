@@ -450,6 +450,16 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         return $this->mergeDefaults(array_replace($matches, array('_route' => 'document_delete')), array (  '_controller' => 'Esprit\\RubriqueBundle\\Controller\\DocumentController::deleteAction',));
                     }
 
+                    // document_download
+                    if (preg_match('#^/scolarite/document/(?P<path>[^/]++)/download$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'document_download')), array (  '_controller' => 'Esprit\\RubriqueBundle\\Controller\\DocumentController::fileAction',));
+                    }
+
+                    // document_read
+                    if (preg_match('#^/scolarite/document/(?P<path>[^/]++)/read$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'document_read')), array (  '_controller' => 'Esprit\\RubriqueBundle\\Controller\\DocumentController::readfileAction',));
+                    }
+
                     if (0 === strpos($pathinfo, '/scolarite/documentstage')) {
                         // documentstage
                         if (rtrim($pathinfo, '/') === '/scolarite/documentstage') {
@@ -499,14 +509,13 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                         // documentstage_delete
                         if (preg_match('#^/scolarite/documentstage/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                                $allow = array_merge($allow, array('POST', 'DELETE'));
-                                goto not_documentstage_delete;
-                            }
-
                             return $this->mergeDefaults(array_replace($matches, array('_route' => 'documentstage_delete')), array (  '_controller' => 'Esprit\\RubriqueBundle\\Controller\\DocumentStageController::deleteAction',));
                         }
-                        not_documentstage_delete:
+
+                        // documentstage_download
+                        if (preg_match('#^/scolarite/documentstage/(?P<path>[^/]++)/download$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'documentstage_download')), array (  '_controller' => 'Esprit\\RubriqueBundle\\Controller\\DocumentStageController::fileAction',));
+                        }
 
                     }
 
@@ -581,189 +590,246 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/esp')) {
-            if (0 === strpos($pathinfo, '/espe')) {
-                if (0 === strpos($pathinfo, '/espenseigant')) {
-                    // espenseignant
-                    if (rtrim($pathinfo, '/') === '/espenseigant') {
-                        if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'espenseignant');
-                        }
-
-                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::indexAction',  '_route' => 'espenseignant',);
-                    }
-
-                    // espenseignant_show
-                    if (preg_match('#^/espenseigant/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_show')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::showAction',));
-                    }
-
-                    // espenseignant_new
-                    if ($pathinfo === '/espenseigant/new') {
-                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::newAction',  '_route' => 'espenseignant_new',);
-                    }
-
-                    // espenseignant_create
-                    if ($pathinfo === '/espenseigant/create') {
-                        if ($this->context->getMethod() != 'POST') {
-                            $allow[] = 'POST';
-                            goto not_espenseignant_create;
-                        }
-
-                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::createAction',  '_route' => 'espenseignant_create',);
-                    }
-                    not_espenseignant_create:
-
-                    // espenseignant_edit
-                    if (preg_match('#^/espenseigant/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::editAction',));
-                    }
-
-                    // espenseignant_update
-                    if (preg_match('#^/espenseigant/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                            $allow = array_merge($allow, array('POST', 'PUT'));
-                            goto not_espenseignant_update;
-                        }
-
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::updateAction',));
-                    }
-                    not_espenseignant_update:
-
-                    // espenseignant_delete
-                    if (preg_match('#^/espenseigant/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                            $allow = array_merge($allow, array('POST', 'DELETE'));
-                            goto not_espenseignant_delete;
-                        }
-
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::deleteAction',));
-                    }
-                    not_espenseignant_delete:
-
-                }
-
-                if (0 === strpos($pathinfo, '/espetudiant')) {
-                    // espetudiant
-                    if (rtrim($pathinfo, '/') === '/espetudiant') {
-                        if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'espetudiant');
-                        }
-
-                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::indexAction',  '_route' => 'espetudiant',);
-                    }
-
-                    // espetudiant_show
-                    if (preg_match('#^/espetudiant/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_show')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::showAction',));
-                    }
-
-                    // espetudiant_new
-                    if ($pathinfo === '/espetudiant/new') {
-                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::newAction',  '_route' => 'espetudiant_new',);
-                    }
-
-                    // espetudiant_create
-                    if ($pathinfo === '/espetudiant/create') {
-                        if ($this->context->getMethod() != 'POST') {
-                            $allow[] = 'POST';
-                            goto not_espetudiant_create;
-                        }
-
-                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::createAction',  '_route' => 'espetudiant_create',);
-                    }
-                    not_espetudiant_create:
-
-                    // espetudiant_edit
-                    if (preg_match('#^/espetudiant/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::editAction',));
-                    }
-
-                    // espetudiant_update
-                    if (preg_match('#^/espetudiant/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                            $allow = array_merge($allow, array('POST', 'PUT'));
-                            goto not_espetudiant_update;
-                        }
-
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::updateAction',));
-                    }
-                    not_espetudiant_update:
-
-                    // espetudiant_delete
-                    if (preg_match('#^/espetudiant/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                            $allow = array_merge($allow, array('POST', 'DELETE'));
-                            goto not_espetudiant_delete;
-                        }
-
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::deleteAction',));
-                    }
-                    not_espetudiant_delete:
-
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/espnote')) {
-                // espnote
-                if (rtrim($pathinfo, '/') === '/espnote') {
+        if (0 === strpos($pathinfo, '/espe')) {
+            if (0 === strpos($pathinfo, '/espenseigant')) {
+                // espenseignant
+                if (rtrim($pathinfo, '/') === '/espenseigant') {
                     if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'espnote');
+                        return $this->redirect($pathinfo.'/', 'espenseignant');
                     }
 
-                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::indexAction',  '_route' => 'espnote',);
+                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::indexAction',  '_route' => 'espenseignant',);
                 }
 
-                // espnote_show
-                if ($pathinfo === '/espnote/show') {
-                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::showAction',  '_route' => 'espnote_show',);
+                // espenseignant_show
+                if (preg_match('#^/espenseigant/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_show')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::showAction',));
                 }
 
-                // espnote_new
-                if ($pathinfo === '/espnote/new') {
-                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::newAction',  '_route' => 'espnote_new',);
+                // espenseignant_new
+                if ($pathinfo === '/espenseigant/new') {
+                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::newAction',  '_route' => 'espenseignant_new',);
                 }
 
-                // espnote_create
-                if ($pathinfo === '/espnote/create') {
+                // espenseignant_create
+                if ($pathinfo === '/espenseigant/create') {
                     if ($this->context->getMethod() != 'POST') {
                         $allow[] = 'POST';
-                        goto not_espnote_create;
+                        goto not_espenseignant_create;
                     }
 
-                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::createAction',  '_route' => 'espnote_create',);
+                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::createAction',  '_route' => 'espenseignant_create',);
                 }
-                not_espnote_create:
+                not_espenseignant_create:
 
-                // espnote_edit
-                if (preg_match('#^/espnote/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espnote_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::editAction',));
+                // espenseignant_edit
+                if (preg_match('#^/espenseigant/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::editAction',));
                 }
 
-                // espnote_update
-                if (preg_match('#^/espnote/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                // espenseignant_update
+                if (preg_match('#^/espenseigant/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
                     if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
                         $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_espnote_update;
+                        goto not_espenseignant_update;
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espnote_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::updateAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::updateAction',));
                 }
-                not_espnote_update:
+                not_espenseignant_update:
 
-                // espnote_delete
-                if (preg_match('#^/espnote/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                // espenseignant_delete
+                if (preg_match('#^/espenseigant/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
                     if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
                         $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_espnote_delete;
+                        goto not_espenseignant_delete;
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espnote_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::deleteAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espenseignant_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEnseignantController::deleteAction',));
                 }
-                not_espnote_delete:
+                not_espenseignant_delete:
 
             }
+
+            if (0 === strpos($pathinfo, '/espetudiant')) {
+                // espetudiant
+                if (rtrim($pathinfo, '/') === '/espetudiant') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'espetudiant');
+                    }
+
+                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::indexAction',  '_route' => 'espetudiant',);
+                }
+
+                // espetudiant_show
+                if (preg_match('#^/espetudiant/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_show')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::showAction',));
+                }
+
+                // espetudiant_new
+                if ($pathinfo === '/espetudiant/new') {
+                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::newAction',  '_route' => 'espetudiant_new',);
+                }
+
+                // espetudiant_create
+                if ($pathinfo === '/espetudiant/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_espetudiant_create;
+                    }
+
+                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::createAction',  '_route' => 'espetudiant_create',);
+                }
+                not_espetudiant_create:
+
+                // espetudiant_edit
+                if (preg_match('#^/espetudiant/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::editAction',));
+                }
+
+                // espetudiant_update
+                if (preg_match('#^/espetudiant/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_espetudiant_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::updateAction',));
+                }
+                not_espetudiant_update:
+
+                // espetudiant_delete
+                if (preg_match('#^/espetudiant/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_espetudiant_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espetudiant_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspEtudiantController::deleteAction',));
+                }
+                not_espetudiant_delete:
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/absence')) {
+            // absence
+            if (rtrim($pathinfo, '/') === '/absence') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'absence');
+                }
+
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\AbsenceController::indexAction',  '_route' => 'absence',);
+            }
+
+            // absence_show
+            if ($pathinfo === '/absence/show') {
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\AbsenceController::showAction',  '_route' => 'absence_show',);
+            }
+
+            // absence_new
+            if ($pathinfo === '/absence/new') {
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\AbsenceController::newAction',  '_route' => 'absence_new',);
+            }
+
+            // absence_create
+            if ($pathinfo === '/absence/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_absence_create;
+                }
+
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\AbsenceController::createAction',  '_route' => 'absence_create',);
+            }
+            not_absence_create:
+
+            // absence_edit
+            if (preg_match('#^/absence/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'absence_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\AbsenceController::editAction',));
+            }
+
+            // absence_update
+            if (preg_match('#^/absence/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_absence_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'absence_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\AbsenceController::updateAction',));
+            }
+            not_absence_update:
+
+            // absence_delete
+            if (preg_match('#^/absence/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_absence_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'absence_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\AbsenceController::deleteAction',));
+            }
+            not_absence_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/espnote')) {
+            // espnote
+            if (rtrim($pathinfo, '/') === '/espnote') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'espnote');
+                }
+
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::indexAction',  '_route' => 'espnote',);
+            }
+
+            // espnote_show
+            if ($pathinfo === '/espnote/show') {
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::showAction',  '_route' => 'espnote_show',);
+            }
+
+            // espnote_new
+            if ($pathinfo === '/espnote/new') {
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::newAction',  '_route' => 'espnote_new',);
+            }
+
+            // espnote_create
+            if ($pathinfo === '/espnote/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_espnote_create;
+                }
+
+                return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::createAction',  '_route' => 'espnote_create',);
+            }
+            not_espnote_create:
+
+            // espnote_edit
+            if (preg_match('#^/espnote/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'espnote_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::editAction',));
+            }
+
+            // espnote_update
+            if (preg_match('#^/espnote/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_espnote_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'espnote_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::updateAction',));
+            }
+            not_espnote_update:
+
+            // espnote_delete
+            if (preg_match('#^/espnote/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_espnote_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'espnote_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspNoteController::deleteAction',));
+            }
+            not_espnote_delete:
 
         }
 

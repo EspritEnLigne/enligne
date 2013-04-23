@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: 'C:/wamp/www/EOLESPRIT/EOL/app/config/routing_dev.yml'
+    resource: 'C:/wamp/www/enligne/app/config/routing_dev.yml'

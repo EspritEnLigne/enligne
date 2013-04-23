@@ -7,7 +7,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Idet</th>
                 <th>Nomet</th>
                 <th>Pnomet</th>
                 <th>Datenaiset</th>
@@ -22,7 +21,6 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('espetudiant_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.idEt }}</td>
                 <td>{{ entity.nomEt }}</td>
                 <td>{{ entity.pnomEt }}</td>
                 <td>{% if entity.dateNaisEt %}{{ entity.dateNaisEt|date('Y-m-d H:i:s') }}{% endif %}</td>

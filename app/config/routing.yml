@@ -13,6 +13,10 @@ EspEspritUser_etudiant:
     resource: "@EspritUserBundle/Resources/config/routing/espetudiant.yml"
     prefix:   /espetudiant
 
+EspritUser_absence:
+    resource: "@EspritUserBundle/Resources/config/routing/absence.yml"
+    prefix:   /absence
+
 EspritUser_ensnotee:
     resource: "@EspritUserBundle/Resources/config/routing/espnote.yml"
     prefix:   /espnote

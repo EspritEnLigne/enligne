@@ -27,4 +27,7 @@ documentstage_update:
 documentstage_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "EspritRubriqueBundle:DocumentStage:delete" }
-    requirements: { _method: post|delete }
+#    requirements: { _method: post|delete }
+documentstage_download:
+    pattern: /{path}/download
+    defaults: { _controller: "EspritRubriqueBundle:DocumentStage:file" }

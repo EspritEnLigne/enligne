@@ -23,9 +23,11 @@ class InscritSeminController extends Controller {
 
         $entities = $em->getRepository('EspritSeminaireBundle:InscritSemin')->findAll();
         //$user = $this->get('security.context')->getToken()->getUser()->getTest();
-//        $iduser = $this->get('security.context')->getToken()->getUser()->getTest();
-//        $etudiant = $em->getRepository('EspritUserBundle:EspEtudiant')
-//                ->getEtudiantCourant($iduser);
+        $iduser = $this->get('security.context')->getToken()->getUser()->getIdentifiant();
+        $etudiant = $em->getRepository('EspritUserBundle:EspEtudiant')
+                ->getEtudiantCourant($iduser);
+
+
 
 //$stmt = $this->getDoctrine()->getEntityManager()
 //                    ->getConnection()
@@ -39,7 +41,7 @@ class InscritSeminController extends Controller {
         //,'result'=>$res
         //, 'iduser' => $etudiant[0]
         return $this->render('EspritSeminaireBundle:InscritSemin:index.html.twig', array(
-                    'entities' => $entities
+                    'entities' => $entities, 'etudiant' => $etudiant[0]
                 ));
     }
 
@@ -49,10 +51,17 @@ class InscritSeminController extends Controller {
      */
     public function createAction(Request $request) {
         $entity = new InscritSemin();
-            $iduser = $this->get('security.context')->getToken()->getUser()->getTest();
+        $iduser = $this->get('security.context')->getToken()->getUser()->getIdentifiant();
+        $stmt2 = $this->getDoctrine()->getEntityManager()
+                ->getConnection()
+                ->prepare('SELECT * FROM SEMINAIRE 
+                        WHERE ID NOT IN (SELECT ID_SEM FROM INSCRITSEMIN WHERE ID_ET=:id_et)');
+        //WHERE ID NOT IN (SELECT ID_SEM FROM INSCRITSEMIN WHERE ID_ET=:id_et)
+        $stmt2->bindValue('id_et', $iduser);
+        $stmt2->execute();
+        $seminaireLibre = $stmt2->fetchAll();
 
-
-        $form = $this->createForm(new InscritSeminType(), $entity, array('id' => $iduser ));
+        $form = $this->createForm(new InscritSeminType($seminaireLibre), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -60,29 +69,52 @@ class InscritSeminController extends Controller {
             $etudiant = $em->getRepository('EspritUserBundle:EspEtudiant')
                     ->getEtudiantCourant($iduser);
 
-            $stmt = $this->getDoctrine()->getEntityManager()
-                    ->getConnection()
-                    ->prepare('SELECT * FROM V_SEMINAIRE');
-            $stmt->execute();
-            $result = $stmt->fetchAll();
-            if(!$result){
+
+            ////////etudiants inscrits dans les seminaires/////////
+//            $stmt = $this->getDoctrine()->getEntityManager()
+//                    ->getConnection()
+//                    ->prepare('SELECT * FROM V_SEMINAIRE WHERE ID_ET=:id_et');
+//            $stmt->bindValue('id_et', $iduser);
+//            $stmt->execute();
+//            $result1 = $stmt->fetchAll();
+//            ////////////seminaires libres par rapport à l'étudiant connecté///////////
+//            $stmt2 = $this->getDoctrine()->getEntityManager()
+//                    ->getConnection()
+//                    ->prepare('SELECT * FROM SEMINAIRE 
+//                        WHERE ID NOT IN (SELECT ID_SEM FROM V_SEMINAIRE WHERE ID_ET=:id_et)');
+//            //WHERE ID NOT IN (SELECT ID_SEM FROM INSCRITSEMIN WHERE ID_ET=:id_et)
+//            $stmt2->bindValue('id_et', $iduser);
+//            $stmt2->execute();
+//            $result2 = $stmt2->fetchAll();
+//
+//            foreach ($result2 as $value) {
+//
+//                $seminLibre = $value['ID'];
+//            }
+//
+//
+//            foreach ($result1 as $value) {
+//                //$etud = $value['ID_ET'];
+//                $semin = $value['ID_SEM'];
+//            }
+//            if (!$result1) {
+//                $entity->setEtudiant($etudiant[0]);
+//                $em->persist($entity);
+//                $em->flush();
+//            } else {
+//
+//                if (!$result2) {
+//                    return new Response('etudiant déja inscrit');
+//                } else {
+//                    $entity->setEtudiant($etudiant[0]);
+//                    $em->persist($entity);
+//                    $em->flush();
+//                }
+//            }
                 $entity->setEtudiant($etudiant[0]);
                     $em->persist($entity);
                     $em->flush();
-            }else{
-                foreach ($result as $value) {
-                    $res = $value['ID_ET'];
-                }
-                if ($etudiant[0]->getId() == $res) {
-                    return new Response('etudiant déja inscrit');
-                }else{ 
-                    $entity->setEtudiant($etudiant[0]);
-                    $em->persist($entity);
-                    $em->flush();
-                }
-            }
-                
-    
+
 
             return $this->redirect($this->generateUrl('inscritsemin_show', array('id' => $entity->getId())));
         }
@@ -98,14 +130,23 @@ class InscritSeminController extends Controller {
      *
      */
     public function newAction() {
+        //$arraySemin=new array();
+
         $entity = new InscritSemin();
-//        $iduser = $this->get('security.context')->getToken()->getUser()->getTest();
-//            $etudiant = $em->getRepository('EspritUserBundle:EspEtudiant')
-//                    ->getEtudiantCourant($iduser);
-        $form = $this->createForm(new InscritSeminType(), $entity);
-        
-            
-        
+        //$em = $this->getDoctrine()->getManager();
+        $iduser = $this->get('security.context')->getToken()->getUser()->getIdentifiant();
+        $stmt2 = $this->getDoctrine()->getEntityManager()
+                ->getConnection()
+                ->prepare('SELECT * FROM SEMINAIRE 
+                        WHERE ID NOT IN (SELECT ID_SEM FROM INSCRITSEMIN WHERE ID_ET=:id_et)');
+        //WHERE ID NOT IN (SELECT ID_SEM FROM INSCRITSEMIN WHERE ID_ET=:id_et)
+        $stmt2->bindValue('id_et', $iduser);
+        $stmt2->execute();
+        $seminaireLibre = $stmt2->fetchAll();
+
+        $form = $this->createForm(new InscritSeminType($seminaireLibre), $entity);
+
+
 
         return $this->render('EspritSeminaireBundle:InscritSemin:new.html.twig', array(
                     'entity' => $entity,
@@ -223,11 +264,12 @@ class InscritSeminController extends Controller {
                         ->getForm()
         ;
     }
-    private function createNewForm($seminaire){
-        return $this->createFormBuilder(array('seminaire'=>$seminaire))
-                ->add('seminaire','hidden')
-                ->getForm()
-                ;
+
+    private function createNewForm($seminaire) {
+        return $this->createFormBuilder(array('seminaire' => $seminaire))
+                        ->add('seminaire', 'hidden')
+                        ->getForm()
+        ;
     }
 
 }

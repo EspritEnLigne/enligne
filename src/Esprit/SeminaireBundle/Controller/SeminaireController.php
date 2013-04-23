@@ -21,15 +21,15 @@ class SeminaireController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $iduser = $this->get('security.context')->getToken()->getUser()->getTest();
+        $iduser = $this->get('security.context')->getToken()->getUser()->getIdentifiant();
 $entities = $em->getRepository('EspritSeminaireBundle:Seminaire')->findAll();
-//        $seminaires = $em->getRepository('EspritSeminaireBundle:Seminaire')->getSeminaireLibre($iduser);
-//                foreach ($seminaires as $value) {
-//                    $res = $value;
-//                }
+        $seminaires = $em->getRepository('EspritSeminaireBundle:Seminaire')->getSeminaireLibre($iduser);
+                foreach ($seminaires as $value) {
+                    $res = $value;
+                }
 
         return $this->render('EspritSeminaireBundle:Seminaire:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => $entities,'seminaires'=>$res['ID']
         ));
     }
 

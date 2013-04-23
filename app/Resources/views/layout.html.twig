@@ -5,6 +5,7 @@
     <title> {% block title %}ESPRIT{% endblock %}</title>
     {% block stylesheets %}
       <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
+      <link rel="stylesheet" href="{{ asset('css/footer.css') }}" type="text/css" />
    
     {% endblock %}
   </head>
@@ -57,11 +58,27 @@
       
           {% endblock %}
       </div>
+          
+          <div id="footer" style=" height: 50px;">
+              {% block footer %}
+                  <ul id="navfooter">
+                      <li><a>Accueil</a></li>
+                      <li><a>Inscription</a></li>
+                      <li><a>Scolarite</a></li>
+                      <li><a>Plateforme E-learning</a></li>
+                      <li><a>Stages et Projets</a></li>
+                      <li><a>Réglement intérieur</a></li>
+                      <li><a>Contact</a></li>
+                  </ul>
+                  <a>benahmed_houcine@yahoo.fr</a>
+                  {% endblock %}
+          </div>
   {% block javascripts %}
     {# Ajoutez ces javascripts si vous comptez vous servir des
 fonctionnalités du bootstrap Twitter #}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/shadowbox.js') }}"></script>
   {% endblock %}
   </body>
 

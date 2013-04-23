@@ -13,3 +13,6 @@ EspritUser_ensnote:
 EspritUser_ensnews:
     resource: "@EspritUserBundle/Resources/config/routing/news.yml"
     prefix:   /
+EspritUserBundle_absence:
+    resource: "@EspritUserBundle/Resources/config/routing/absence.yml"
+    prefix:   /

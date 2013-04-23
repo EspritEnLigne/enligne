@@ -152,20 +152,19 @@ class DocumentStageController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->bind($request);
+//        $form = $this->createDeleteForm($id);
+//        $form->bind($request);
+//        if ($form->isValid()) {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('EspritRubriqueBundle:DocumentStage')->find($id);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('EspritRubriqueBundle:DocumentStage')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find DocumentStage entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Document entity.');
         }
+
+        $em->remove($entity);
+        $em->flush();
+        //      }
 
         return $this->redirect($this->generateUrl('documentstage'));
     }
@@ -184,4 +183,21 @@ class DocumentStageController extends Controller
             ->getForm()
         ;
     }
+    
+        public function fileAction($path) {
+        
+    $str='C:\\wamp\\www\\PFE\\EOL\\web\\uploads\\documents\\';
+        $file = new \Symfony\Component\HttpFoundation\File\File($str.$path);
+        $data = $file->openFile('r');
+        $response = new Response();
+        $response->setStatusCode(200);
+        $response->setContent(readfile($file));
+        $response->headers->set('Content-Type', 'mime/type');
+        $response->headers->set('Content-Length', $file->getSize());
+        $response->headers->set('Content-Disposition', sprintf('filename="%s"', $file->getBasename()));
+        $response->sendHeaders();
+        $data->fpassthru();
+        return $response;
+    }
+
 }

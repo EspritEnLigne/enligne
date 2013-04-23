@@ -12,3 +12,10 @@ installation du bundle FOSUser: il faut ajouter ces deux lignes dans appkernel.p
 
 new Sdz\UserBundle\SdzUserBundle(),
 new FOS\UserBundle\FOSUserBundle(), 
+***********************************************************************************************************
+
+bundles pagination
+"white-october/pagerfanta-bundle": "dev-master",
+        "pagerfanta/pagerfanta": "dev-master",
+
+**************************************************************************************************************

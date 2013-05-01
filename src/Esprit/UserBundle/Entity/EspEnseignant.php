@@ -91,6 +91,13 @@ class EspEnseignant
      */
     private $pwdEns;
 
+    
+    
+    /**
+     * @ManyToMany(targetEntity="Esprit\EnseignantBundle\Entity\EspCursus")
+     * @JoinTable(name="ens_cursus")
+     */
+    private $cursus;
 
     /**
      * Get id

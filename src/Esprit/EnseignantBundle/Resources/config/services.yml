@@ -1,0 +1,7 @@
+parameters:
+#    esprit_enseignant.example.class: Esprit\EnseignantBundle\Example
+
+services:
+#    esprit_enseignant.example:
+#        class: %esprit_enseignant.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

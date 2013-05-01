@@ -1,3 +1,7 @@
+esprit_enseignant:
+    resource: "@EspritEnseignantBundle/Resources/config/routing.yml"
+    prefix:   /
+
 esprit_seminaire:
     resource: "@EspritSeminaireBundle/Resources/config/routing.yml"
     prefix:   /

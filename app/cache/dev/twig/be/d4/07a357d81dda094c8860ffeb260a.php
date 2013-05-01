@@ -28,10 +28,10 @@ class __TwigTemplate_bed407a357d81dda094c8860ffeb260a extends Twig_Template
     public function block_fos_user_content($context, array $blocks = array())
     {
         // line 4
-        if ($this->getContext($context, "error")) {
+        if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
             // line 5
             echo "<div>";
-            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getContext($context, "error"), array(), "FOSUserBundle"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), array(), "FOSUserBundle"), "html", null, true);
             echo "</div>
 ";
         }
@@ -41,7 +41,7 @@ class __TwigTemplate_bed407a357d81dda094c8860ffeb260a extends Twig_Template
         echo "\" method=\"post\">
     <input type=\"text\" class=\"input-small\" id=\"username\" placeholder=\"Username\" value=\"";
         // line 8
-        echo twig_escape_filter($this->env, $this->getContext($context, "last_username"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" required=\"required\" name=\"_username\">
     <input type=\"password\" class=\"input-small\" id=\"password\" placeholder=\"Password\" required=\"required\" name=\"_password\">
     <label class=\"checkbox\">
@@ -72,6 +72,6 @@ class __TwigTemplate_bed407a357d81dda094c8860ffeb260a extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  44 => 8,  39 => 7,  31 => 4,  28 => 3,  196 => 86,  193 => 85,  191 => 84,  189 => 83,  187 => 82,  184 => 81,  181 => 80,  174 => 73,  171 => 72,  164 => 69,  161 => 68,  155 => 65,  150 => 64,  148 => 63,  145 => 62,  138 => 57,  132 => 54,  124 => 48,  113 => 43,  90 => 36,  86 => 35,  72 => 23,  65 => 19,  61 => 18,  56 => 16,  52 => 14,  47 => 12,  32 => 9,  22 => 2,  19 => 1,  146 => 65,  142 => 64,  137 => 61,  134 => 55,  128 => 56,  125 => 55,  117 => 44,  114 => 6,  108 => 41,  102 => 67,  100 => 60,  95 => 55,  81 => 44,  77 => 43,  55 => 56,  46 => 19,  35 => 10,  29 => 5,  23 => 1,  111 => 34,  104 => 39,  99 => 28,  93 => 27,  91 => 26,  88 => 25,  79 => 21,  73 => 42,  71 => 18,  67 => 17,  59 => 86,  54 => 12,  50 => 12,  43 => 6,  40 => 5,  33 => 5,  158 => 79,  139 => 63,  135 => 62,  131 => 61,  127 => 60,  123 => 59,  106 => 45,  101 => 38,  97 => 59,  85 => 32,  80 => 30,  76 => 28,  74 => 27,  63 => 16,  58 => 17,  48 => 9,  45 => 8,  42 => 7,  36 => 10,  30 => 2,);
+        return array (  55 => 56,  44 => 8,  39 => 7,  31 => 4,  28 => 3,  196 => 86,  193 => 85,  191 => 84,  189 => 83,  187 => 82,  184 => 81,  181 => 80,  174 => 73,  164 => 69,  161 => 68,  155 => 65,  150 => 64,  148 => 63,  145 => 62,  138 => 57,  134 => 55,  132 => 54,  124 => 48,  117 => 44,  113 => 43,  90 => 36,  86 => 35,  72 => 23,  65 => 19,  61 => 18,  52 => 14,  32 => 9,  22 => 2,  19 => 1,  175 => 81,  171 => 72,  168 => 79,  166 => 77,  163 => 76,  149 => 64,  146 => 63,  140 => 57,  137 => 56,  130 => 8,  125 => 7,  122 => 6,  116 => 5,  110 => 83,  108 => 41,  105 => 75,  103 => 63,  98 => 60,  96 => 56,  82 => 45,  78 => 44,  56 => 16,  51 => 21,  47 => 12,  34 => 6,  24 => 1,  111 => 34,  104 => 39,  99 => 28,  93 => 27,  91 => 26,  88 => 25,  79 => 21,  73 => 19,  71 => 18,  67 => 17,  59 => 86,  54 => 12,  50 => 12,  43 => 6,  40 => 5,  33 => 5,  158 => 79,  139 => 63,  135 => 62,  131 => 61,  127 => 60,  123 => 59,  106 => 45,  101 => 38,  97 => 41,  85 => 32,  80 => 30,  76 => 28,  74 => 43,  63 => 16,  58 => 17,  48 => 9,  45 => 8,  42 => 7,  36 => 10,  30 => 5,);
     }
 }

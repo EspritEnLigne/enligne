@@ -4,6 +4,8 @@ namespace Esprit\EnseignantBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * EspTacheRdi
  *
@@ -34,7 +36,11 @@ class EspTacheRdi
      * @ORM\Column(name="Etat", type="integer")
      */
     private $etat;
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="EspRdi")
+     */
+    private $rdi;
 
     /**
      * Get id

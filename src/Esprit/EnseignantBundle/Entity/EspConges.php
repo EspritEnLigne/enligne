@@ -4,6 +4,8 @@ namespace Esprit\EnseignantBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * EspConges
  *
@@ -42,6 +44,12 @@ class EspConges
      */
     private $titre;
 
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="Esprit\UserBundle\Entity\EspEnseignant")
+     * @ORM\JoinColumn(name="ens_conges_id", referencedColumnName="id")
+     */
+    private $ens;
 
     /**
      * Get id

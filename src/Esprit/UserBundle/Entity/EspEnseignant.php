@@ -3,6 +3,7 @@
 namespace Esprit\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * EspEnseignant
@@ -94,10 +95,19 @@ class EspEnseignant
     
     
     /**
-     * @ManyToMany(targetEntity="Esprit\EnseignantBundle\Entity\EspCursus")
-     * @JoinTable(name="ens_cursus")
+     * @ORM\OneToMany(targetEntity="EspTacheRdi", mappedBy="ensesp")
      */
     private $cursus;
+    /**
+     * @ORM\ManyToMany(targetEntity="Esprit\EnseignantBundle\Entity\EspRdi", mappedBy="ens")
+     * @ORM\JoinTable(name="ens_rdi")
+     */
+    private $prdi;
+    
+    public function __construct() {
+        $this->prdi = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->cursus = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -337,5 +347,71 @@ class EspEnseignant
     public function getPwdEns()
     {
         return $this->pwdEns;
+    }
+
+    /**
+     * Add cursus
+     *
+     * @param \Esprit\UserBundle\Entity\EspTacheRdi $cursus
+     * @return EspEnseignant
+     */
+    public function addCursu(\Esprit\UserBundle\Entity\EspTacheRdi $cursus)
+    {
+        $this->cursus[] = $cursus;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cursus
+     *
+     * @param \Esprit\UserBundle\Entity\EspTacheRdi $cursus
+     */
+    public function removeCursu(\Esprit\UserBundle\Entity\EspTacheRdi $cursus)
+    {
+        $this->cursus->removeElement($cursus);
+    }
+
+    /**
+     * Get cursus
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCursus()
+    {
+        return $this->cursus;
+    }
+
+    /**
+     * Add prdi
+     *
+     * @param \Esprit\EnseignantBundle\Entity\EspRdi $prdi
+     * @return EspEnseignant
+     */
+    public function addPrdi(\Esprit\EnseignantBundle\Entity\EspRdi $prdi)
+    {
+        $this->prdi[] = $prdi;
+    
+        return $this;
+    }
+
+    /**
+     * Remove prdi
+     *
+     * @param \Esprit\EnseignantBundle\Entity\EspRdi $prdi
+     */
+    public function removePrdi(\Esprit\EnseignantBundle\Entity\EspRdi $prdi)
+    {
+        $this->prdi->removeElement($prdi);
+    }
+
+    /**
+     * Get prdi
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPrdi()
+    {
+        return $this->prdi;
     }
 }

@@ -4,6 +4,8 @@ namespace Esprit\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * EspEtudiant
  *
@@ -73,8 +75,17 @@ class EspEtudiant
      * @ORM\Column(name="adresse_et", type="string", length=100)
      */
     private $adresseEt;
-
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="EspEnseignant")
+     * @ORM\JoinColumn(name="id_enc", referencedColumnName="id")
+     */
+    private $encadrement;
+     /**
+     * @ORM\OneToOne(targetEntity="Esprit\EnseignantBundle\Entity\EspFichePfe")
+     * @ORM\JoinColumn(name="fichepfe_id", referencedColumnName="id")
+     */
+    private $fichepfe;
     /**
      * Get id
      *
@@ -301,5 +312,51 @@ class EspEtudiant
     
     public function __toString() {
         return $this->getId();
+    }
+
+    /**
+     * Set encadrement
+     *
+     * @param \Esprit\UserBundle\Entity\EspEnseignant $encadrement
+     * @return EspEtudiant
+     */
+    public function setEncadrement(\Esprit\UserBundle\Entity\EspEnseignant $encadrement = null)
+    {
+        $this->encadrement = $encadrement;
+    
+        return $this;
+    }
+
+    /**
+     * Get encadrement
+     *
+     * @return \Esprit\UserBundle\Entity\EspEnseignant 
+     */
+    public function getEncadrement()
+    {
+        return $this->encadrement;
+    }
+
+    /**
+     * Set fichepfe
+     *
+     * @param \Esprit\EnseignantBundle\Entity\EspFichePfe $fichepfe
+     * @return EspEtudiant
+     */
+    public function setFichepfe(\Esprit\EnseignantBundle\Entity\EspFichePfe $fichepfe = null)
+    {
+        $this->fichepfe = $fichepfe;
+    
+        return $this;
+    }
+
+    /**
+     * Get fichepfe
+     *
+     * @return \Esprit\EnseignantBundle\Entity\EspFichePfe 
+     */
+    public function getFichepfe()
+    {
+        return $this->fichepfe;
     }
 }

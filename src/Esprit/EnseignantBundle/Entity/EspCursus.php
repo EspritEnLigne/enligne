@@ -48,7 +48,10 @@ class EspCursus
      * @ORM\Column(name="Type", type="string", length=255)
      */
     private $type;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="Esprit\UserBundle\Entity\EspEnseignant")
+     */
+    private $ensesp;
 
     /**
      * Get id

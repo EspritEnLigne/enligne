@@ -4,6 +4,8 @@ namespace Esprit\EnseignantBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * EspRdi
  *
@@ -42,7 +44,21 @@ class EspRdi
      */
     private $titre;
 
-
+    /**
+     * @ORM\ManyToMany(targetEntity="Esprit\UserBundle\Entity\EspEnseignant", mappedBy="prdi")
+     * @ORM\JoinTable(name="ens_rdi")
+     */
+    private $ens;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EspTacheRdi", mappedBy="rdi")
+     */
+    private $tacherdi;
+    
+    public function __construct() {
+        $this->ens = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tacherdi = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     /**
      * Get id
      *

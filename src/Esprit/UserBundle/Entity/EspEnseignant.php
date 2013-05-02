@@ -13,6 +13,29 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class EspEnseignant
 {
+            /**
+     * @ORM\OneToMany(targetEntity="Esprit\EnseignantBundle\Entity\Absencelist", mappedBy="enseignant", cascade={"persist"})
+     */
+    private $absencelist;
+
+    
+        /**
+     * @ORM\OneToMany(targetEntity="Esprit\EnseignantBundle\Entity\Absence", mappedBy="enseignant",cascade={"persist"})
+     */
+    private $absences;
+
+        /**
+     * @ORM\ManyToMany(targetEntity="Esprit\EnseignantBundle\Entity\Matiere", cascade={"persist"})
+     */
+    private $matieres;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Esprit\EnseignantBundle\Entity\Classe", inversedBy="enseignants")
+     * @ORM\JoinTable(name="affectation")
+     * */
+    private $classes;
+
+    
     /**
      * @var integer
      *
@@ -413,5 +436,137 @@ class EspEnseignant
     public function getPrdi()
     {
         return $this->prdi;
+    }
+
+    /**
+     * Add absencelist
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Absencelist $absencelist
+     * @return EspEnseignant
+     */
+    public function addAbsencelist(\Esprit\EnseignantBundle\Entity\Absencelist $absencelist)
+    {
+        $this->absencelist[] = $absencelist;
+    
+        return $this;
+    }
+
+    /**
+     * Remove absencelist
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Absencelist $absencelist
+     */
+    public function removeAbsencelist(\Esprit\EnseignantBundle\Entity\Absencelist $absencelist)
+    {
+        $this->absencelist->removeElement($absencelist);
+    }
+
+    /**
+     * Get absencelist
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAbsencelist()
+    {
+        return $this->absencelist;
+    }
+
+    /**
+     * Add absences
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Absence $absences
+     * @return EspEnseignant
+     */
+    public function addAbsence(\Esprit\EnseignantBundle\Entity\Absence $absences)
+    {
+        $this->absences[] = $absences;
+    
+        return $this;
+    }
+
+    /**
+     * Remove absences
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Absence $absences
+     */
+    public function removeAbsence(\Esprit\EnseignantBundle\Entity\Absence $absences)
+    {
+        $this->absences->removeElement($absences);
+    }
+
+    /**
+     * Get absences
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAbsences()
+    {
+        return $this->absences;
+    }
+
+    /**
+     * Add matieres
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Matiere $matieres
+     * @return EspEnseignant
+     */
+    public function addMatiere(\Esprit\EnseignantBundle\Entity\Matiere $matieres)
+    {
+        $this->matieres[] = $matieres;
+    
+        return $this;
+    }
+
+    /**
+     * Remove matieres
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Matiere $matieres
+     */
+    public function removeMatiere(\Esprit\EnseignantBundle\Entity\Matiere $matieres)
+    {
+        $this->matieres->removeElement($matieres);
+    }
+
+    /**
+     * Get matieres
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMatieres()
+    {
+        return $this->matieres;
+    }
+
+    /**
+     * Add classes
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Classe $classes
+     * @return EspEnseignant
+     */
+    public function addClasse(\Esprit\EnseignantBundle\Entity\Classe $classes)
+    {
+        $this->classes[] = $classes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove classes
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Classe $classes
+     */
+    public function removeClasse(\Esprit\EnseignantBundle\Entity\Classe $classes)
+    {
+        $this->classes->removeElement($classes);
+    }
+
+    /**
+     * Get classes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClasses()
+    {
+        return $this->classes;
     }
 }

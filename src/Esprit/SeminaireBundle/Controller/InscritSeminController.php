@@ -50,6 +50,8 @@ class InscritSeminController extends Controller {
      *
      */
     public function createAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        
         $entity = new InscritSemin();
         $iduser = $this->get('security.context')->getToken()->getUser()->getIdentifiant();
         $stmt2 = $this->getDoctrine()->getEntityManager()
@@ -60,16 +62,21 @@ class InscritSeminController extends Controller {
         $stmt2->bindValue('id_et', $iduser);
         $stmt2->execute();
         $seminaireLibre = $stmt2->fetchAll();
+        
+        $sl = array();
+        for($i=0;$i<count($seminaireLibre);$i++){
+            $sl[$i] = $seminaireLibre[$i]['ID'];
+        }
 
-        $form = $this->createForm(new InscritSeminType($seminaireLibre), $entity);
+        $form = $this->createForm(new InscritSeminType($sl), $entity);
         $form->bind($request);
-
+      
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $etudiant = $em->getRepository('EspritUserBundle:EspEtudiant')
                     ->getEtudiantCourant($iduser);
-
-
+            
+            
             ////////etudiants inscrits dans les seminaires/////////
 //            $stmt = $this->getDoctrine()->getEntityManager()
 //                    ->getConnection()
@@ -112,8 +119,10 @@ class InscritSeminController extends Controller {
 //                }
 //            }
                 $entity->setEtudiant($etudiant[0]);
-                    $em->persist($entity);
-                    $em->flush();
+                //$entity-> setSeminaire($sem);
+               
+                $em->persist($entity);
+                $em->flush();
 
 
             return $this->redirect($this->generateUrl('inscritsemin_show', array('id' => $entity->getId())));
@@ -143,8 +152,15 @@ class InscritSeminController extends Controller {
         $stmt2->bindValue('id_et', $iduser);
         $stmt2->execute();
         $seminaireLibre = $stmt2->fetchAll();
+        
+//        print_r(array_values($seminaireLibre));
+//        exit;
+        $sl = array();
+        for($i=0;$i<count($seminaireLibre);$i++){
+            $sl[$i] = $seminaireLibre[$i]['ID'];
+        }
 
-        $form = $this->createForm(new InscritSeminType($seminaireLibre), $entity);
+        $form = $this->createForm(new InscritSeminType($sl), $entity);
 
 
 

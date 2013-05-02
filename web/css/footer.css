@@ -2,7 +2,7 @@
     background: url('../img/footer_bg.png') no-repeat scroll center top #F2F2F2;
     color: #999999;
     font-size: 12px;
-    height: 50px;
+    height: 70px;
     line-height: 20px;
     margin: 0 auto;
     text-align: center;
@@ -18,4 +18,14 @@
 #navfooter a {
 	display:inline-block;
 	margin: 0 20px;
+}
+#contentCurve {
+    background-color: transparent;
+}
+#contentCurve {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 1px;
+    
+    margin-bottom: 10px;
 }

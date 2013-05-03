@@ -1,59 +1,50 @@
-{% extends '::base.html.twig' %}
 
-{% block body -%}
     <h1>EspEnseignant</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Idens</th>
+                <th>Identifiant</th>
                 <td>{{ entity.idEns }}</td>
             </tr>
             <tr>
-                <th>Nomens</th>
+                <th>Nom</th>
                 <td>{{ entity.nomEns }}</td>
             </tr>
             <tr>
-                <th>Typeens</th>
-                <td>{{ entity.typeEns }}</td>
+                <th>Civilité</th>
+                <td>{{ entity.civilite }}</td>
             </tr>
             <tr>
-                <th>Daterec</th>
-                <td>{{ entity.dateRec|date('Y-m-d H:i:s') }}</td>
+                <th>Date de naissance</th>
+                <td>{{ entity.datenaissance|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Niveau</th>
-                <td>{{ entity.niveau }}</td>
+                <th>Numéro de carte d'identité</th>
+                <td>{{ entity.cin }}</td>
             </tr>
             <tr>
-                <th>Datesaisie</th>
-                <td>{{ entity.dateSaisie|date('Y-m-d H:i:s') }}</td>
+                <th>Code CNSS</th>
+                <td>{{ entity.cnss}}</td>
             </tr>
             <tr>
-                <th>Datedernmodif</th>
-                <td>{{ entity.dateDernModif|date('Y-m-d H:i:s') }}</td>
+                <th>Date d'entrée</th>
+                <td>{{ entity.datentree|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Etat</th>
-                <td>{{ entity.etat }}</td>
+                <th>Numéro de telephone 1</th>
+                <td>{{ entity.tel1 }}</td>
             </tr>
             <tr>
-                <th>Observation</th>
-                <td>{{ entity.observation }}</td>
+                <th>Numéro de telephone 2</th>
+                <td>{{ entity.tel2 }}</td>
             </tr>
-            <tr>
-                <th>Pwdens</th>
-                <td>{{ entity.pwdEns }}</td>
-            </tr>
+            
         </tbody>
     </table>
 
         <ul class="record_actions">
-    <li>
+    {#<li>
         <a href="{{ path('espenseignant') }}">
             Back to the list
         </a>
@@ -69,6 +60,6 @@
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>
-    </li>
+    </li>#}
 </ul>
-{% endblock %}
+

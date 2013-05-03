@@ -37,7 +37,7 @@ class __TwigTemplate_6c641e404ae1c6fc48e7669584096aa3 extends Twig_Template
     </div>
     ";
         // line 7
-        if ((twig_length_filter($this->env, $this->getContext($context, "read_only_choices")) > 0)) {
+        if ((twig_length_filter($this->env, (isset($context["read_only_choices"]) ? $context["read_only_choices"] : $this->getContext($context, "read_only_choices"))) > 0)) {
             // line 8
             echo "    <div class=\"readonly\">
         <h4>";
@@ -48,11 +48,11 @@ class __TwigTemplate_6c641e404ae1c6fc48e7669584096aa3 extends Twig_Template
         ";
             // line 11
             $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($this->getContext($context, "read_only_choices"));
+            $context['_seq'] = twig_ensure_traversable((isset($context["read_only_choices"]) ? $context["read_only_choices"] : $this->getContext($context, "read_only_choices")));
             foreach ($context['_seq'] as $context["_key"] => $context["choice"]) {
                 // line 12
                 echo "            <li>";
-                echo twig_escape_filter($this->env, $this->getContext($context, "choice"), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["choice"]) ? $context["choice"] : $this->getContext($context, "choice")), "html", null, true);
                 echo "</li>
         ";
             }
@@ -74,6 +74,6 @@ class __TwigTemplate_6c641e404ae1c6fc48e7669584096aa3 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  63 => 14,  54 => 12,  50 => 11,  45 => 9,  42 => 8,  40 => 7,  26 => 2,  20 => 1,  52 => 15,  41 => 7,  35 => 5,  31 => 4,  28 => 3,);
+        return array (  63 => 14,  54 => 12,  50 => 11,  45 => 9,  42 => 8,  40 => 7,  35 => 5,  26 => 2,  20 => 1,  140 => 69,  135 => 67,  127 => 62,  119 => 57,  109 => 50,  102 => 46,  95 => 42,  88 => 38,  81 => 34,  74 => 30,  67 => 26,  60 => 22,  53 => 18,  46 => 14,  39 => 10,  31 => 4,  28 => 3,);
     }
 }

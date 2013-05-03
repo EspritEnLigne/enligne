@@ -1,28 +1,55 @@
-{% extends '::base.html.twig' %}
+   <h1>Profil</h1>
 
-{% block body -%}
-    <h1>EspEnseignant edit</h1>
-
-    <form action="{{ path('espenseignant_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <form  class="form-horizontal" action="{{ path('espenseignant_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
-        {{ form_widget(edit_form) }}
-        <p>
-            <button type="submit">Edit</button>
-        </p>
+        
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.civilite) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.civilite) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.idEns) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.idEns) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.cin) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.cin) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.cnss) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.cnss) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.tel1) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.tel1) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.tel2) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.tel2) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.datenaissance) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.datenaissance) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.datentree) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.datentree) }} </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">{{ form_label(edit_form.datesortie) }}</label>
+            <div class="controls"> {{ form_widget(edit_form.datesortie) }} </div>
+        </div>
+        <h1>Cursus scolaire et universitaire</h1>
+        <div class="control-group">
+            
+            <div class="controls">
+               {{ form_rest(edit_form) }}
+                <button type="submit" class="btn">Edit</button>
+            </div>
+        </div>
+        
     </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('espenseignant') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('espenseignant_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
-{% endblock %}
+
+       
+

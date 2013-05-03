@@ -19,14 +19,22 @@ class EspEnseignantController extends Controller
      *
      */
     public function indexAction()
-    {
+    {    
+   
+        $id=41;
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('EspritUserBundle:EspEnseignant')->findAll();
-
+        $entity = $em->getRepository('EspritUserBundle:EspEnseignant')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find EspEnseignant entity.');
+        }
+          $editForm = $this->createForm(new EspEnseignantType(), $entity);
+      
+        $deleteForm = $this->createDeleteForm($id);
+        /////////////
         return $this->render('EspritUserBundle:EspEnseignant:index.html.twig', array(
-            'entities' => $entities,
-        ));
+            'entity'      => $entity,
+             'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
@@ -105,12 +113,12 @@ class EspEnseignantController extends Controller
 
         $editForm = $this->createForm(new EspEnseignantType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('EspritUserBundle:EspEnseignant:edit.html.twig', array(
+        
+        return $this->render('EspritUserBundle:EspEnseignant:index.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+             'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),        ));
+        
     }
 
     /**
@@ -119,6 +127,7 @@ class EspEnseignantController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $id=41;
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('EspritUserBundle:EspEnseignant')->find($id);

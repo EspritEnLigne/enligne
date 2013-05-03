@@ -35,14 +35,14 @@ class __TwigTemplate_30f2fc8df84bec1cee18dbc8d75a7bf1 extends Twig_Template
         <div class=\"sf-toolbar-icon\">
             <a href=\"";
         // line 6
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler", array("token" => $this->getContext($context, "token"), "panel" => $this->getContext($context, "name"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler", array("token" => (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")), "panel" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")))), "html", null, true);
         echo "\">
                 ";
         // line 7
         echo "<span style=\"width:0px; height: 28px; vertical-align: middle;\"></span>
                 <span class=\"sf-toolbar-status\">";
         // line 8
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "blocks")), "html", null, true);
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "blocks")), "html", null, true);
         echo "</span> blocks
             </a>
         </div>
@@ -51,21 +51,21 @@ class __TwigTemplate_30f2fc8df84bec1cee18dbc8d75a7bf1 extends Twig_Template
                 <b>Real Blocks</b>
                 <span>";
         // line 14
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "realBlocks")), "html", null, true);
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "realBlocks")), "html", null, true);
         echo "</span>
             </div>
             <div class=\"sf-toolbar-info-piece\">
                 <b>Containers</b>
                 <span>";
         // line 18
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "containers")), "html", null, true);
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "containers")), "html", null, true);
         echo "</span>
             </div>
             <div class=\"sf-toolbar-info-piece\">
                 <b>Total Blocks</b>
                 <span>";
         // line 22
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "blocks")), "html", null, true);
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "blocks")), "html", null, true);
         echo "</span>
             </div>
         </div>
@@ -83,7 +83,7 @@ class __TwigTemplate_30f2fc8df84bec1cee18dbc8d75a7bf1 extends Twig_Template
         <span class=\"count\">
             <span>";
         // line 33
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "blocks")), "html", null, true);
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "blocks")), "html", null, true);
         echo "</span>
         </span>
     </span>
@@ -97,7 +97,7 @@ class __TwigTemplate_30f2fc8df84bec1cee18dbc8d75a7bf1 extends Twig_Template
         echo "    <h2>Real Blocks</h2>
     ";
         // line 40
-        $context["blocks"] = $this->getAttribute($this->getContext($context, "collector"), "realBlocks");
+        $context["blocks"] = $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "realBlocks");
         // line 41
         echo "    ";
         $this->displayBlock("table", $context, $blocks);
@@ -106,7 +106,7 @@ class __TwigTemplate_30f2fc8df84bec1cee18dbc8d75a7bf1 extends Twig_Template
     <h2>Containers Blocks</h2>
     ";
         // line 44
-        $context["blocks"] = $this->getAttribute($this->getContext($context, "collector"), "containers");
+        $context["blocks"] = $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "containers");
         // line 45
         echo "    ";
         $this->displayBlock("table", $context, $blocks);
@@ -135,33 +135,33 @@ class __TwigTemplate_30f2fc8df84bec1cee18dbc8d75a7bf1 extends Twig_Template
         ";
         // line 60
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "blocks"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["blocks"]) ? $context["blocks"] : $this->getContext($context, "blocks")));
         foreach ($context['_seq'] as $context["id"] => $context["block"]) {
             // line 61
             echo "            <tr>
                 <th>";
             // line 62
-            echo twig_escape_filter($this->env, $this->getContext($context, "id"), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "html", null, true);
             echo "</th>
                 <td>";
             // line 63
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "block"), "name"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["block"]) ? $context["block"] : $this->getContext($context, "block")), "name"), "html", null, true);
             echo "</td>
                 <td>";
             // line 64
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "block"), "type"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["block"]) ? $context["block"] : $this->getContext($context, "block")), "type"), "html", null, true);
             echo "</td>
                 <td>";
             // line 65
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, (($this->getAttribute($this->getContext($context, "block"), "memory_end") - $this->getAttribute($this->getContext($context, "block"), "memory_start")) / 1000), 0), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, (($this->getAttribute((isset($context["block"]) ? $context["block"] : $this->getContext($context, "block")), "memory_end") - $this->getAttribute((isset($context["block"]) ? $context["block"] : $this->getContext($context, "block")), "memory_start")) / 1000), 0), "html", null, true);
             echo " Kb</td>
                 <td>";
             // line 66
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, ($this->getAttribute($this->getContext($context, "block"), "memory_peak") / 1000), 0), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, ($this->getAttribute((isset($context["block"]) ? $context["block"] : $this->getContext($context, "block")), "memory_peak") / 1000), 0), "html", null, true);
             echo " Kb</td>
                 <td>";
             // line 67
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, (($this->getAttribute($this->getContext($context, "block"), "time_end") - $this->getAttribute($this->getContext($context, "block"), "time_start")) * 1000), 2), "html", null, true);
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, (($this->getAttribute((isset($context["block"]) ? $context["block"] : $this->getContext($context, "block")), "time_end") - $this->getAttribute((isset($context["block"]) ? $context["block"] : $this->getContext($context, "block")), "time_start")) * 1000), 2), "html", null, true);
             echo " ms</td>
             </tr>
         ";

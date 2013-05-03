@@ -41,6 +41,57 @@ class EspEnseignant
      * @ORM\Column(name="type_ens", type="string", length=1)
      */
     private $typeEns;
+    /////////////////////////////////////////////////////////////////
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="civilite", type="string", length=255)
+     */
+    private $civilite;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="cin", type="integer")
+     */
+    private $cin;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="cnss", type="string", length=255)
+     */
+    private $cnss;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="tel1", type="integer")
+     */
+    private $tel1;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="tel2", type="integer")
+     */
+    private $tel2;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="datenaissance", type="date")
+     */
+    private $datenaissance;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="datentree", type="date")
+     */
+    private $datentree;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="datesortie", type="date")
+     */
+    private $datesortie;
+    ////////////////////////////////////////////////////////////
+    
 
     /**
      * @var \DateTime
@@ -330,5 +381,189 @@ class EspEnseignant
     public function getPwdEns()
     {
         return $this->pwdEns;
+    }
+
+    /**
+     * Set civilite
+     *
+     * @param string $civilite
+     * @return EspEnseignant
+     */
+    public function setCivilite($civilite)
+    {
+        $this->civilite = $civilite;
+    
+        return $this;
+    }
+
+    /**
+     * Get civilite
+     *
+     * @return string 
+     */
+    public function getCivilite()
+    {
+        return $this->civilite;
+    }
+
+    /**
+     * Set cin
+     *
+     * @param integer $cin
+     * @return EspEnseignant
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return integer 
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set cnss
+     *
+     * @param string $cnss
+     * @return EspEnseignant
+     */
+    public function setCnss($cnss)
+    {
+        $this->cnss = $cnss;
+    
+        return $this;
+    }
+
+    /**
+     * Get cnss
+     *
+     * @return string 
+     */
+    public function getCnss()
+    {
+        return $this->cnss;
+    }
+
+    /**
+     * Set tel1
+     *
+     * @param integer $tel1
+     * @return EspEnseignant
+     */
+    public function setTel1($tel1)
+    {
+        $this->tel1 = $tel1;
+    
+        return $this;
+    }
+
+    /**
+     * Get tel1
+     *
+     * @return integer 
+     */
+    public function getTel1()
+    {
+        return $this->tel1;
+    }
+
+    /**
+     * Set tel2
+     *
+     * @param integer $tel2
+     * @return EspEnseignant
+     */
+    public function setTel2($tel2)
+    {
+        $this->tel2 = $tel2;
+    
+        return $this;
+    }
+
+    /**
+     * Get tel2
+     *
+     * @return integer 
+     */
+    public function getTel2()
+    {
+        return $this->tel2;
+    }
+
+    /**
+     * Set datenaissance
+     *
+     * @param \DateTime $datenaissance
+     * @return EspEnseignant
+     */
+    public function setDatenaissance($datenaissance)
+    {
+        $this->datenaissance = $datenaissance;
+    
+        return $this;
+    }
+
+    /**
+     * Get datenaissance
+     *
+     * @return \DateTime 
+     */
+    public function getDatenaissance()
+    {
+        return $this->datenaissance;
+    }
+
+    /**
+     * Set datentree
+     *
+     * @param \DateTime $datentree
+     * @return EspEnseignant
+     */
+    public function setDatentree($datentree)
+    {
+        $this->datentree = $datentree;
+    
+        return $this;
+    }
+
+    /**
+     * Get datentree
+     *
+     * @return \DateTime 
+     */
+    public function getDatentree()
+    {
+        return $this->datentree;
+    }
+
+    /**
+     * Set datesortie
+     *
+     * @param \DateTime $datesortie
+     * @return EspEnseignant
+     */
+    public function setDatesortie($datesortie)
+    {
+        $this->datesortie = $datesortie;
+    
+        return $this;
+    }
+
+    /**
+     * Get datesortie
+     *
+     * @return \DateTime 
+     */
+    public function getDatesortie()
+    {
+        return $this->datesortie;
     }
 }

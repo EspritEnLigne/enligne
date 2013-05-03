@@ -48,7 +48,7 @@ class __TwigTemplate_32058d179b6779e47f290129885ec99b extends Twig_Template
       ";
         // line 11
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
             // line 12
             echo "      <li class=\"span4\">
@@ -56,22 +56,22 @@ class __TwigTemplate_32058d179b6779e47f290129885ec99b extends Twig_Template
 
              <h3>";
             // line 15
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "nom"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nom"), "html", null, true);
             echo "</h3>
               <p>";
             // line 16
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "desc"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "desc"), "html", null, true);
             echo "
                   <a class=\"btn btn-small btn-primary disabled\" href=\"";
             // line 17
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("news_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("news_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">Lire</a>
                    ";
             // line 18
             if ($this->env->getExtension('security')->isGranted("ROLE_COMMUNICATION")) {
                 // line 19
                 echo "                  <a class=\"btn btn-small btn-primary disabled\" href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("news_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("news_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
                 echo "\">Modifier</a>
                    ";
             }
@@ -88,10 +88,10 @@ class __TwigTemplate_32058d179b6779e47f290129885ec99b extends Twig_Template
         echo "      </ul>
       ";
         // line 26
-        if ($this->getAttribute($this->getContext($context, "pagerfanta"), "haveToPaginate")) {
+        if ($this->getAttribute((isset($context["pagerfanta"]) ? $context["pagerfanta"] : $this->getContext($context, "pagerfanta")), "haveToPaginate")) {
             // line 27
             echo "       ";
-            echo $this->env->getExtension('pagerfanta')->renderPagerfanta($this->getContext($context, "pagerfanta"), "twitter_bootstrap_translated");
+            echo $this->env->getExtension('pagerfanta')->renderPagerfanta((isset($context["pagerfanta"]) ? $context["pagerfanta"] : $this->getContext($context, "pagerfanta")), "twitter_bootstrap_translated");
             echo "
     ";
         }

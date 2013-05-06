@@ -1,0 +1,30 @@
+fichepfe:
+    pattern:  /
+    defaults: { _controller: "EspritUserBundle:FichePfe:index" }
+
+fichepfe_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EspritUserBundle:FichePfe:show" }
+
+fichepfe_new:
+    pattern:  /new
+    defaults: { _controller: "EspritUserBundle:FichePfe:new" }
+
+fichepfe_create:
+    pattern:  /create
+    defaults: { _controller: "EspritUserBundle:FichePfe:create" }
+    requirements: { _method: post }
+
+fichepfe_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EspritUserBundle:FichePfe:edit" }
+
+fichepfe_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EspritUserBundle:FichePfe:update" }
+    requirements: { _method: post|put }
+
+fichepfe_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EspritUserBundle:FichePfe:delete" }
+    requirements: { _method: post|delete }

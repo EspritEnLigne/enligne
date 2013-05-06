@@ -20,11 +20,14 @@ class EspEnseignantController extends Controller
      */
     public function indexAction()
     {    
-   
+       
         $id=41;
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('EspritUserBundle:EspEnseignant')->find($id);
         $enscursus = $em->getRepository('EspritUserBundle:EspCursus')->findAll();
+        $entities = $em->getRepository('EspritUserBundle:EspEtudiant')->findByespens($id);
+
+     
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EspEnseignant entity.');
         }
@@ -34,6 +37,7 @@ class EspEnseignantController extends Controller
         /////////////
         return $this->render('EspritUserBundle:EspEnseignant:index.html.twig', array(
             'enscursus'=>$enscursus,
+            'entities' => $entities,
             'entity'      => $entity,
              'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),        ));

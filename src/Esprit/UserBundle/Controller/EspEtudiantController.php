@@ -72,11 +72,12 @@ class EspEtudiantController extends Controller
      * Finds and displays a EspEtudiant entity.
      *
      */
-    public function showAction($id)
+    public function showAction($idenc)
     {
-        $em = $this->getDoctrine()->getManager();
+         $idenc=41;
+         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('EspritUserBundle:EspEtudiant')->find($id);
+        $entity = $em->getRepository('EspritUserBundle:EspEtudiant')->getByIdenc($idenc);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EspEtudiant entity.');
@@ -112,7 +113,22 @@ class EspEtudiantController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+    
+    public function encadrementAction(){
+         $idenc=41;
+        $em = $this->getDoctrine()->getManager();
 
+        $entities = $em->getRepository('EspritUserBundle:EspEtudiant')->findByespens($idenc);
+
+        return $this->render('EspritUserBundle:EspEtudiant:encadrement.html.twig', array(
+            'entities' => $entities,
+        ));
+         
+       
+      
+        
+        
+    }
     /**
      * Edits an existing EspEtudiant entity.
      *

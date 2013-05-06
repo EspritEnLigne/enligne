@@ -52,6 +52,13 @@ class EspEtudiant
      * @ORM\Column(name="lieu_nais_et", type="string", length=30)
      */
     private $lieuNaisEt;
+    /**
+     * @ORM\ManyToOne(targetEntity="EspEnseignant" , inversedBy="encadrement")
+     * @ORM\JoinColumn(name="id_enc", referencedColumnName="id")
+     */
+    private $espens;
+    
+   
 
     /**
      * @var string
@@ -73,7 +80,12 @@ class EspEtudiant
      * @ORM\Column(name="adresse_et", type="string", length=100)
      */
     private $adresseEt;
-
+    
+     /**
+     * @ORM\OneToOne(targetEntity="FichePfe", inversedBy="etudiant",cascade={"persist"})
+     * @ORM\JoinColumn(name="fiche_id", referencedColumnName="id")
+     */
+    private $fiche;
 
     /**
      * Get id
@@ -301,5 +313,53 @@ class EspEtudiant
     
     public function __toString() {
         return $this->getId();
+    }
+
+    /**
+     * Set espens
+     *
+     * @param \Esprit\UserBundle\Entity\EspEnseignant $espens
+     * @return EspEtudiant
+     */
+    public function setEspens(\Esprit\UserBundle\Entity\EspEnseignant $espens = null)
+    {
+        $this->espens = $espens;
+    
+        return $this;
+    }
+
+    /**
+     * Get espens
+     *
+     * @return \Esprit\UserBundle\Entity\EspEnseignant 
+     */
+    public function getEspens()
+    {
+        return $this->espens;
+    }
+
+   
+
+    /**
+     * Set fiche
+     *
+     * @param \Esprit\UserBundle\Entity\FichePfe $fiche
+     * @return EspEtudiant
+     */
+    public function setFiche(\Esprit\UserBundle\Entity\FichePfe $fiche = null)
+    {
+        $this->fiche = $fiche;
+    
+        return $this;
+    }
+
+    /**
+     * Get fiche
+     *
+     * @return \Esprit\UserBundle\Entity\FichePfe 
+     */
+    public function getFiche()
+    {
+        return $this->fiche;
     }
 }

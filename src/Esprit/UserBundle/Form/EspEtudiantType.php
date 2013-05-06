@@ -19,6 +19,7 @@ class EspEtudiantType extends AbstractType
             ->add('natureEt')
             ->add('fonctionEt')
             ->add('adresseEt')
+            ->add('fiche',new FichePfeType())
         ;
     }
 
@@ -33,4 +34,6 @@ class EspEtudiantType extends AbstractType
     {
         return 'esprit_userbundle_espetudianttype';
     }
+
+   
 }

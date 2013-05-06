@@ -9,6 +9,9 @@ espetudiant_show:
 espetudiant_new:
     pattern:  /new
     defaults: { _controller: "EspritUserBundle:EspEtudiant:new" }
+espetudiant_enc:
+    pattern:  /encadrement
+    defaults: { _controller: "EspritUserBundle:EspEtudiant:encadrement" }
 
 espetudiant_create:
     pattern:  /create

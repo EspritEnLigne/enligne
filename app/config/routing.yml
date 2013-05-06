@@ -11,6 +11,9 @@ EspEspritUser_enseignant:
 EspEspritUser_cursus:
     resource: "@EspritUserBundle/Resources/config/routing/espcursus.yml"
     prefix:   /espcursus
+EspEspritUser_fichepfe:
+    resource: "@EspritUserBundle/Resources/config/routing/fichepfe.yml"
+    prefix:   /fichepfe
     
 EspEspritUser_etudiant:
     resource: "@EspritUserBundle/Resources/config/routing/espetudiant.yml"

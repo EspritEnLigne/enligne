@@ -23,5 +23,17 @@ class EspEtudiantRepository extends EntityRepository
     ')->setParameter('etudiant_id', $id)
             ->getResult();
     }
+    public function getByIdenc($idEnc) {
+        return $this->_em->createQuery('
+        SELECT
+            e
+        FROM
+             EspritUserBundle:EspEtudiant e
+        WHERE
+            e.espens = :etudiant_id
+       
+    ')->setParameter('etudiant_id', $idEnc)
+            ->getArrayResult();
+    }
 
 }

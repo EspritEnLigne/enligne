@@ -112,6 +112,10 @@ class EspEnseignant
      */
     private $cursus;
     /**
+     * @ORM\OneToMany(targetEntity="EspEtudiant" ,mappedBy="espens")
+     */
+    private $encadrement;
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_saisie", type="date")
@@ -608,5 +612,38 @@ class EspEnseignant
     public function getCursus()
     {
         return $this->cursus;
+    }
+
+    /**
+     * Add encadrement
+     *
+     * @param \Esprit\UserBundle\Entity\EspEtudiant $encadrement
+     * @return EspEnseignant
+     */
+    public function addEncadrement(\Esprit\UserBundle\Entity\EspEtudiant $encadrement)
+    {
+        $this->encadrement[] = $encadrement;
+    
+        return $this;
+    }
+
+    /**
+     * Remove encadrement
+     *
+     * @param \Esprit\UserBundle\Entity\EspEtudiant $encadrement
+     */
+    public function removeEncadrement(\Esprit\UserBundle\Entity\EspEtudiant $encadrement)
+    {
+        $this->encadrement->removeElement($encadrement);
+    }
+
+    /**
+     * Get encadrement
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEncadrement()
+    {
+        return $this->encadrement;
     }
 }

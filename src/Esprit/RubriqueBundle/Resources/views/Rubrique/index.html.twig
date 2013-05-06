@@ -1,9 +1,9 @@
 {% extends '::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Rubrique list</h1>
+    
 
-    <table class="records_list">
+    <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
         <thead>
             <tr>
                 <th>Id</th>
@@ -22,12 +22,14 @@
                 <td>{% if entity.dateRub %}{{ entity.dateRub|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
+                    {% if is_granted('ROLE_SCOL') %}
                     <li>
-                        <a href="{{ path('rubrique_show', { 'id': entity.id }) }}">show</a>
+                        <a class="icon-remove" href="{{ path('rubrique_delete', { 'id': entity.id }) }}" title="supprimer" onclick="return confirm('are u sure?')"></a>
                     </li>
                     <li>
-                        <a href="{{ path('rubrique_edit', { 'id': entity.id }) }}">edit</a>
+                        <a class="icon-pencil" href="{{ path('rubrique_edit', { 'id': entity.id }) }}" title="modifier"></a>
                     </li>
+                    {% endif %}
                 </ul>
                 </td>
             </tr>
@@ -35,11 +37,9 @@
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('rubrique_new') }}">
-                Create a new entry
+        
+            <a class="btn" href="{{ path('rubrique_new') }}">
+                Ajouter Rubrique
             </a>
-        </li>
-    </ul>
+        
     {% endblock %}

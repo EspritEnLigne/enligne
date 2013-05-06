@@ -31,4 +31,4 @@ rubrique_update:
 rubrique_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "EspritRubriqueBundle:Rubrique:delete" }
-    requirements: { _method: post|delete }
+#    requirements: { _method: post|delete }

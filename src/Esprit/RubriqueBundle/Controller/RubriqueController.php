@@ -149,12 +149,12 @@ class RubriqueController extends Controller
      * Deletes a Rubrique entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->bind($request);
-
-        if ($form->isValid()) {
+    public function deleteAction($id)
+    {//Request $request, 
+//        $form = $this->createDeleteForm($id);
+//        $form->bind($request);
+//
+//        if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('EspritRubriqueBundle:Rubrique')->find($id);
 
@@ -164,7 +164,7 @@ class RubriqueController extends Controller
 
             $em->remove($entity);
             $em->flush();
-        }
+//        }
 
         return $this->redirect($this->generateUrl('rubrique'));
     }

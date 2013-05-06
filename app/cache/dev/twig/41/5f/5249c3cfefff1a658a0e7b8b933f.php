@@ -97,7 +97,7 @@ class __TwigTemplate_415f5249c3cfefff1a658a0e7b8b933f extends Twig_Template
         // line 60
         echo "      </div>
           
-          <div id=\"footer\" style=\" height: 50px;\">
+          <div id=\"footer\">
               ";
         // line 63
         $this->displayBlock('footer', $context, $blocks);

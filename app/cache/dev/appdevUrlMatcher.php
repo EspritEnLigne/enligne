@@ -197,9 +197,17 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // esprit_seminaire_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'esprit_seminaire_homepage')), array (  '_controller' => 'Esprit\\SeminaireBundle\\Controller\\DefaultController::indexAction',));
+        if (0 === strpos($pathinfo, '/hello')) {
+            // esprit_enseignant_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'esprit_enseignant_homepage')), array (  '_controller' => 'Esprit\\EnseignantBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // esprit_seminaire_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'esprit_seminaire_homepage')), array (  '_controller' => 'Esprit\\SeminaireBundle\\Controller\\DefaultController::indexAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/inscritsemin')) {
@@ -387,14 +395,8 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                     // rubrique_delete
                     if (preg_match('#^/scolarite/rubrique/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                            $allow = array_merge($allow, array('POST', 'DELETE'));
-                            goto not_rubrique_delete;
-                        }
-
                         return $this->mergeDefaults(array_replace($matches, array('_route' => 'rubrique_delete')), array (  '_controller' => 'Esprit\\RubriqueBundle\\Controller\\RubriqueController::deleteAction',));
                     }
-                    not_rubrique_delete:
 
                 }
 

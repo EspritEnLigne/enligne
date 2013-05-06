@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Absence
  *
- * @ORM\Table(name="Esp_Absence")
+ * @ORM\Table(name="Absence")
  * @ORM\Entity(repositoryClass="Esprit\UserBundle\Entity\AbsenceRepository")
  */
 class Absence

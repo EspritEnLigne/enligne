@@ -34,6 +34,7 @@
       <parameter key="SonataIntlBundle">Sonata\IntlBundle\SonataIntlBundle</parameter>
       <parameter key="WhiteOctoberPagerfantaBundle">WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle</parameter>
       <parameter key="EspritSeminaireBundle">Esprit\SeminaireBundle\EspritSeminaireBundle</parameter>
+      <parameter key="EspritEnseignantBundle">Esprit\EnseignantBundle\EspritEnseignantBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -509,8 +510,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/enligne/app/cache/dev/jms_diextra/doctrine/EntityManager_5175b24b9831b.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager5175b24b9831b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/enligne/app/cache/dev/jms_diextra/doctrine/EntityManager_5184176b9fe33.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager5184176b9fe33_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -2453,6 +2454,12 @@
         <argument>fr</argument>
         <argument>messages</argument>
       </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>C:\wamp\www\enligne\src\Esprit\EnseignantBundle/Resources/translations\messages.fr.xlf</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
     </service>
     <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader">
       <tag name="translation.loader" alias="php"/>
@@ -3231,7 +3238,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5175b249d5652</argument>
+            <argument>5184176aeb97e</argument>
           </service>
         </argument>
         <argument type="service">
@@ -3245,7 +3252,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5175b249d5652</argument>
+            <argument>5184176aeb97e</argument>
           </service>
         </argument>
       </argument>
@@ -3632,7 +3639,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5175b249d5652</argument>
+            <argument>5184176aeb97e</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -3745,7 +3752,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5175b249d5652</argument>
+            <argument>5184176aeb97e</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -4207,8 +4214,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager5175b24b9831b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/wamp/www/enligne/app/cache/dev/jms_diextra/doctrine/EntityManager_5175b24b9831b.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager5184176b9fe33_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/wamp/www/enligne/app/cache/dev/jms_diextra/doctrine/EntityManager_5184176b9fe33.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -4222,6 +4229,7 @@
                   <argument key="SonataUserBundle">Sonata\UserBundle\Entity</argument>
                   <argument key="ApplicationSonataUserBundle">Application\Sonata\UserBundle\Entity</argument>
                   <argument key="EspritSeminaireBundle">Esprit\SeminaireBundle\Entity</argument>
+                  <argument key="EspritEnseignantBundle">Esprit\EnseignantBundle\Entity</argument>
                 </argument>
               </call>
               <call method="setMetadataCacheImpl">
@@ -4307,6 +4315,7 @@
                             <argument>C:\wamp\www\enligne\src\Esprit\UserBundle\Entity</argument>
                             <argument>C:\wamp\www\enligne\src\Esprit\RubriqueBundle\Entity</argument>
                             <argument>C:\wamp\www\enligne\src\Esprit\SeminaireBundle\Entity</argument>
+                            <argument>C:\wamp\www\enligne\src\Esprit\EnseignantBundle\Entity</argument>
                           </argument>
                         </service>
                       </argument>
@@ -4320,6 +4329,7 @@
                             <argument>C:\wamp\www\enligne\src\Esprit\UserBundle\Entity</argument>
                             <argument>C:\wamp\www\enligne\src\Esprit\RubriqueBundle\Entity</argument>
                             <argument>C:\wamp\www\enligne\src\Esprit\SeminaireBundle\Entity</argument>
+                            <argument>C:\wamp\www\enligne\src\Esprit\EnseignantBundle\Entity</argument>
                           </argument>
                         </service>
                       </argument>
@@ -4333,10 +4343,25 @@
                             <argument>C:\wamp\www\enligne\src\Esprit\UserBundle\Entity</argument>
                             <argument>C:\wamp\www\enligne\src\Esprit\RubriqueBundle\Entity</argument>
                             <argument>C:\wamp\www\enligne\src\Esprit\SeminaireBundle\Entity</argument>
+                            <argument>C:\wamp\www\enligne\src\Esprit\EnseignantBundle\Entity</argument>
                           </argument>
                         </service>
                       </argument>
                       <argument>Esprit\SeminaireBundle\Entity</argument>
+                    </call>
+                    <call method="addDriver">
+                      <argument type="service">
+                        <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                          <argument type="service" id="annotation_reader"/>
+                          <argument type="collection">
+                            <argument>C:\wamp\www\enligne\src\Esprit\UserBundle\Entity</argument>
+                            <argument>C:\wamp\www\enligne\src\Esprit\RubriqueBundle\Entity</argument>
+                            <argument>C:\wamp\www\enligne\src\Esprit\SeminaireBundle\Entity</argument>
+                            <argument>C:\wamp\www\enligne\src\Esprit\EnseignantBundle\Entity</argument>
+                          </argument>
+                        </service>
+                      </argument>
+                      <argument>Esprit\EnseignantBundle\Entity</argument>
                     </call>
                   </service>
                 </argument>
@@ -5748,6 +5773,10 @@
       <call method="addPath">
         <argument>C:\wamp\www\enligne\src\Esprit\SeminaireBundle/Resources/views</argument>
         <argument>EspritSeminaire</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\enligne\src\Esprit\EnseignantBundle/Resources/views</argument>
+        <argument>EspritEnseignant</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\enligne\src\Acme\DemoBundle/Resources/views</argument>

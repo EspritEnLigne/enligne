@@ -19,7 +19,7 @@
                 <ul>
                     {% if is_granted('ROLE_SCOL') %}
                     <li>
-                        <a class="icon-remove" href="{{ path('document_delete', { 'id': entity.id }) }}"></a>
+                        <a class="icon-remove" href="{{ path('document_delete', { 'id': entity.id }) }}" onclick="return confirm('are u sure?')"></a>
                     </li>
                     <li>
                         <a class="icon-pencil" href="{{ path('document_edit', { 'id': entity.id }) }}"></a>

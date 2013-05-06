@@ -12,29 +12,32 @@ class EspEnseignantType extends AbstractType
     {
         $builder
             
-             ->add('civilite', 'choice', array(
-                  'choices'   => array('Mr'   => 'Mr','Mme'   => 'Mme','Mlle'   => 'Mlle'),
-                  'required'  => false,))
-            ->add('idEns')
-            ->add('cin')
-            ->add('cnss')
-            ->add('tel1')
-            ->add('tel2')
-            ->add('datenaissance', 'date', array(
-                  'widget' => 'single_text',
+                ->add('civilite', 'choice', array(
+                    'choices' => array('Mr' => 'Mr', 'Mme' => 'Mme', 'Mlle' => 'Mlle'),
+                    'required' => false,))
+                ->add('idEns')
+                ->add('cin')
+                ->add('cnss')
+                ->add('tel1')
+                ->add('tel2')
+                ->add('datenaissance', 'date', array(
+                    'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'date'),
-))
-            ->add('datentree', 'date', array(
-                  'widget' => 'single_text',
+                ))
+                ->add('datentree', 'date', array(
+                    'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'date'),
-))
-            ->add('datesortie', 'date', array(
-                  'widget' => 'single_text',
+                ))
+                ->add('datesortie', 'date', array(
+                    'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'date'),
-))
+                ))
+                
+
+
         ;
     }
 

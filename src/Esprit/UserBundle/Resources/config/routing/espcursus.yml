@@ -1,0 +1,30 @@
+espcursus:
+    pattern:  /
+    defaults: { _controller: "EspritUserBundle:EspCursus:index" }
+
+espcursus_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EspritUserBundle:EspCursus:show" }
+
+espcursus_new:
+    pattern:  /new
+    defaults: { _controller: "EspritUserBundle:EspCursus:new" }
+
+espcursus_create:
+    pattern:  /create
+    defaults: { _controller: "EspritUserBundle:EspCursus:create" }
+    requirements: { _method: post }
+
+espcursus_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EspritUserBundle:EspCursus:edit" }
+
+espcursus_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EspritUserBundle:EspCursus:update" }
+    requirements: { _method: post|put }
+
+espcursus_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EspritUserBundle:EspCursus:delete" }
+    requirements: { _method: post|delete }

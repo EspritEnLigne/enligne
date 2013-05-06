@@ -24,6 +24,7 @@ class EspEnseignantController extends Controller
         $id=41;
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('EspritUserBundle:EspEnseignant')->find($id);
+        $enscursus = $em->getRepository('EspritUserBundle:EspCursus')->findAll();
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EspEnseignant entity.');
         }
@@ -32,6 +33,7 @@ class EspEnseignantController extends Controller
         $deleteForm = $this->createDeleteForm($id);
         /////////////
         return $this->render('EspritUserBundle:EspEnseignant:index.html.twig', array(
+            'enscursus'=>$enscursus,
             'entity'      => $entity,
              'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),        ));
@@ -106,6 +108,7 @@ class EspEnseignantController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('EspritUserBundle:EspEnseignant')->find($id);
+        $enscursus = $em->getRepository('EspritUserBundle:EspCursus')->findAll();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EspEnseignant entity.');
@@ -115,6 +118,7 @@ class EspEnseignantController extends Controller
         $deleteForm = $this->createDeleteForm($id);
         
         return $this->render('EspritUserBundle:EspEnseignant:index.html.twig', array(
+            'enscursus'=>$enscursus,
             'entity'      => $entity,
              'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),        ));
@@ -146,9 +150,10 @@ class EspEnseignantController extends Controller
 
             return $this->redirect($this->generateUrl('espenseignant_edit', array('id' => $id)));
         }
-
-        return $this->render('EspritUserBundle:EspEnseignant:edit.html.twig', array(
+   
+        return $this->render('EspritUserBundle:EspEnseignant:index.html.twig', array(
             'entity'      => $entity,
+           
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

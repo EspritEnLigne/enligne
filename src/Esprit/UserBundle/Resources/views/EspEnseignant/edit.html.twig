@@ -1,4 +1,8 @@
-   <h1>Profil</h1>
+   {% block stylesheets %}
+                <link rel="stylesheet" href="{{ asset('css/zoombox.css') }}" type="text/css" media="all" />
+              
+{% endblock %}
+<h1>Profil</h1>
 
     <form  class="form-horizontal" action="{{ path('espenseignant_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
@@ -40,16 +44,162 @@
             <div class="controls"> {{ form_widget(edit_form.datesortie) }} </div>
         </div>
         <h1>Cursus scolaire et universitaire</h1>
+         <table class="table table-striped">
+                 <tr>
+                    <td>Type</td>
+                    <td>Grade</td>
+                    <td>Annee de début</td>
+                    <td>Annee fin</td>
+                    <td>Action</td>
+                  </tr>
+        {% for cursus in enscursus %}
+          {%if cursus.libelle is sameas("Cursus scolaire et universitaire") %}
+                  <tr>
+                      <td> {{cursus.libelle }}</td>  
+                      <td>{{ cursus.type }}  </td>
+                      <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
+                      <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
+                      <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                
+                  </tr>
+
+         
+      {%endif%}
+        
+         {% endfor %}
+                   </table>
+        <h1>Cursus à ESPRIT</h1>
+         <table class="table table-striped">
+                 <tr>
+                    <td>Type</td>
+                    <td>Grade</td>
+                    <td>Annee de début</td>
+                    <td>Annee fin</td>
+                    <td>Action</td>
+                  </tr>
+        {% for cursus in enscursus %}
+          {%if cursus.libelle is sameas("Cursus à ESPRIT") %}
+                  <tr>
+                    <td> {{cursus.libelle }}</td>  
+                    <td>{{ cursus.type }}  </td>
+                    <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
+                    <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
+                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                
+                  </tr>
+         
+      {%endif%}
+        
+         {% endfor %}
+                   </table>
+        <h1>Fonction à ESPRIT</h1>
+         <table class="table table-striped">
+                 <tr>
+                    <td>Type</td>
+                    <td>Grade</td>
+                    <td>Annee de début</td>
+                    <td>Annee fin</td>
+                    <td>Action</td>
+                  </tr>
+        {% for cursus in enscursus %}
+          {%if cursus.libelle is sameas("Fonction à ESPRIT") %}
+                  <tr>
+                    <td> {{cursus.libelle }}</td>  
+                    <td>{{ cursus.type }}  </td>
+                    <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
+                    <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
+                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                
+                  </tr>
+         
+      {%endif%}
+        
+         {% endfor %}
+                   </table>
+        <h1>Unité pédagogique</h1>
+         <table class="table table-striped">
+                 <tr>
+                    <td>Type</td>
+                    <td>Grade</td>
+                    <td>Annee de début</td>
+                    <td>Annee fin</td>
+                    <td>Action</td>
+                  </tr>
+        {% for cursus in enscursus %}
+          {%if cursus.libelle is sameas("Unité pédagogique") %}
+                  <tr>
+                    <td> {{cursus.libelle }}</td>  
+                    <td>{{ cursus.type }}  </td>
+                    <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
+                    <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
+                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                
+                  </tr>
+         
+      {%endif%}
+        
+         {% endfor %}
+                   </table>
+        <h1>Expérience avant ESPRIT</h1>
+         <table class="table table-striped">
+                 <tr>
+                    <td>Type</td>
+                    <td>Grade</td>
+                    <td>Annee de début</td>
+                    <td>Annee fin</td>
+                    <td>Action</td>
+                  </tr>
+        {% for cursus in enscursus %}
+          {%if cursus.libelle is sameas("Expérience avant ESPRIT") %}
+                  <tr>
+                    <td> {{cursus.libelle }}</td>  
+                    <td>{{ cursus.type }}  </td>
+                    <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
+                    <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
+                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                  </tr>
+         
+      {%endif%}
+        
+         {% endfor %}
+                   </table>
+        
         <div class="control-group">
             
             <div class="controls">
+                
                {{ form_rest(edit_form) }}
                 <button type="submit" class="btn">Edit</button>
+                <a class="btn" href="/enligne/web/app_dev.php/espcursus/new">Ajouter</a>
+               
             </div>
         </div>
         
     </form>
 
+   {% block javascripts %}
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+           <script src="{{ asset('js/zoombox.js') }}" type="text/javascript"></script>
+            <script type="text/javascript">
+    jQuery(function($){
+            $('a.btn').zoombox();
 
+            
+            $('a.btn').zoombox({
+                    theme       : 'darkprettyphoto',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
+                //opacity     : 0.8,              // Black overlay opacity
+              //  duration    : 800,              // Animation duration
+              //  animation   : true,             // Do we have to animate the box ?
+                width       : 800,              // Default width
+                height      : 600,              // Default height
+                gallery     : true,             // Allow gallery thumb view
+                autoplay : false                // Autoplay for video
+            });
+            
+        });     
+        
+    </script>
+           
+ {% endblock %}
        
 

@@ -8,6 +8,9 @@ esprit_rubrique:
 EspEspritUser_enseignant:
     resource: "@EspritUserBundle/Resources/config/routing/espenseignant.yml"
     prefix:   /espenseigant
+EspEspritUser_cursus:
+    resource: "@EspritUserBundle/Resources/config/routing/espcursus.yml"
+    prefix:   /espcursus
     
 EspEspritUser_etudiant:
     resource: "@EspritUserBundle/Resources/config/routing/espetudiant.yml"

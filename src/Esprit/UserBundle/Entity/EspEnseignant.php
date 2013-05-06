@@ -106,7 +106,11 @@ class EspEnseignant
      * @ORM\Column(name="niveau", type="string", length=2)
      */
     private $niveau;
-
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EspCursus" ,mappedBy="espens")
+     */
+    private $cursus;
     /**
      * @var \DateTime
      *
@@ -565,5 +569,44 @@ class EspEnseignant
     public function getDatesortie()
     {
         return $this->datesortie;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+    
+    /**
+     * Add cursus
+     *
+     * @param \Esprit\UserBundle\Entity\EspEnseignant $cursus
+     * @return EspEnseignant
+     */
+    public function addCursu(\Esprit\UserBundle\Entity\EspEnseignant $cursus)
+    {
+        $this->cursus[] = $cursus;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cursus
+     *
+     * @param \Esprit\UserBundle\Entity\EspEnseignant $cursus
+     */
+    public function removeCursu(\Esprit\UserBundle\Entity\EspEnseignant $cursus)
+    {
+        $this->cursus->removeElement($cursus);
+    }
+
+    /**
+     * Get cursus
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCursus()
+    {
+        return $this->cursus;
     }
 }

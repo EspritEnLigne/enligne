@@ -1,0 +1,17 @@
+   <h1>EspCursus creation</h1>
+
+    <form action="{{ path('espcursus_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('espcursus') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+

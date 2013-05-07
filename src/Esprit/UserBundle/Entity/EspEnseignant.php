@@ -120,6 +120,10 @@ class EspEnseignant
      */
     private $encadrement;
     /**
+     * @ORM\OneToMany(targetEntity="ProjetRdi" ,mappedBy="espens")
+     */
+    private $projetrdi;
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_saisie", type="date")
@@ -682,5 +686,38 @@ class EspEnseignant
     public function getConges()
     {
         return $this->conges;
+    }
+
+    /**
+     * Add projetrdi
+     *
+     * @param \Esprit\UserBundle\Entity\ProjetRdi $projetrdi
+     * @return EspEnseignant
+     */
+    public function addProjetrdi(\Esprit\UserBundle\Entity\ProjetRdi $projetrdi)
+    {
+        $this->projetrdi[] = $projetrdi;
+    
+        return $this;
+    }
+
+    /**
+     * Remove projetrdi
+     *
+     * @param \Esprit\UserBundle\Entity\ProjetRdi $projetrdi
+     */
+    public function removeProjetrdi(\Esprit\UserBundle\Entity\ProjetRdi $projetrdi)
+    {
+        $this->projetrdi->removeElement($projetrdi);
+    }
+
+    /**
+     * Get projetrdi
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProjetrdi()
+    {
+        return $this->projetrdi;
     }
 }

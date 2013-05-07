@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ProjetRdi list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ur</th>
+                <th>Dateaffectation</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('projetrdi_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.uR }}</td>
+                <td>{% if entity.dateaffectation %}{{ entity.dateaffectation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.titre }}</td>
+                <td>{{ entity.description }}</td>
+                {% for entit in entity.taches %}
+                <td>{{entit.titre}}</td>
+                 {% endfor %}
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('projetrdi_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('projetrdi_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('projetrdi_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

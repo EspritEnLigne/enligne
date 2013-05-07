@@ -74,7 +74,10 @@ class __TwigTemplate_51f813b0c1d65e1b9020d848e8dd7353 extends Twig_Template
             <p>Howdy, I'm in Section 2.</p>
         </div>
             <div class=\"tab-pane\" id=\"tab5\">
-            <p>Howdy, I'm in Section 2.</p>
+            <p>";
+        // line 31
+        $this->env->loadTemplate("EspritUserBundle:ProjetRdi:projet.html.twig")->display($context);
+        echo "</p>
         </div>
             <div class=\"tab-pane\" id=\"tab6\">
           <p>";
@@ -129,6 +132,6 @@ class __TwigTemplate_51f813b0c1d65e1b9020d848e8dd7353 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  116 => 109,  104 => 98,  101 => 97,  99 => 95,  96 => 94,  92 => 111,  90 => 94,  82 => 34,  70 => 25,  64 => 22,  58 => 19,  45 => 8,  42 => 7,  33 => 3,  30 => 2,);
+        return array (  119 => 109,  107 => 98,  104 => 97,  102 => 95,  99 => 94,  95 => 111,  93 => 94,  85 => 34,  79 => 31,  70 => 25,  64 => 22,  58 => 19,  45 => 8,  42 => 7,  33 => 3,  30 => 2,);
     }
 }

@@ -1,0 +1,114 @@
+{% extends '::base.html.twig' %}
+  {% block stylesheets %}
+                <link rel="stylesheet" href="{{ asset('css/zoombox.css') }}" type="text/css" media="all" />
+              
+{% endblock %}
+{% block body -%}
+    <h2>Recherche, Developpement et Innovation </h2>
+
+  <table class="table table-bordered table-striped table-condensed table-hover" style="width: 100%; ">
+             <thead>
+            <tr>
+                <th style="width: 200px;">Actions</th>
+                <th style="width: 100px;">Titre</th>
+                <th style="width: 200px;">Description</th>
+                <th style="width: 100px;">Unité de recherche</th>
+                <th style="width: 30px;">Dateaffectation</th>
+                <th >Les taches</th>
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entitiesProjet %}
+            <tr>
+                <td style="width: 30px;">
+                <ul>
+                  
+                        <a class="btn btn-mini btn-success"href="{{ path('projetrdi_edit', { 'id': entity.id }) }}">edit</a>
+                        <a class="btn btn-mini btn-danger"href="{{ path('projetrdi_show', { 'id': entity.id }) }}">delete</a>
+                        <a class="btn btn-mini btn-primary"href="{{ path('tacherdi_new')}}">add tache</a>
+                  
+                </ul>
+                </td>
+                <td style="width: 30px;">{{ entity.titre }}</td>
+                <td style="width: 30px;">{{ entity.description }}</td>
+                <td style="width: 30px;">{{ entity.uR }}</td>
+                <td style="width: 30px;">{% if entity.dateaffectation %}{{ entity.dateaffectation|date('Y-m-d') }}{% endif %}</td>
+                <td >
+                    <table  class="table">
+                {% for entit in entity.taches %}
+                            
+                            <tr><td style="width: 150px">{{entit.titre}}
+                                    <a class="btn btn-mini btn-success"href="{{ path('tacherdi_edit', { 'id': entit.id }) }}">edit</a>
+                        <a class="btn btn-mini btn-danger"href="{{ path('tacherdi_show', { 'id': entit.id }) }}">delete</a>
+                    
+                                </td>
+                                <td>
+                                {%if entit.avancement==1%}
+
+                                        <div class="progress progress-striped">
+                                            <div class="bar" style="width: 25%;"></div>
+                                        </div>
+                                         {% elseif entit.avancement==2 %}
+                                        <div class="progress progress-striped">
+                                            <div class="bar" style="width: 50%;"></div>
+                                        </div>  
+                                                {% elseif entit.avancement==3 %}
+                                        <div class="progress progress-striped">
+                                            <div class="bar" style="width: 75%;"></div>
+                                        </div>  
+
+                                          {% else %}
+                                        <div class="progress progress-striped">
+                                            <div class="bar" style="width: 100%;"></div>
+                                        </div> 
+
+
+
+                                 {%endif%}
+
+                                    </td>
+                            
+                            </tr>
+                 {% endfor %}
+                        </table>
+                </td>
+                
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+      
+            <a class="btn btn-large btn-primary" href="{{ path('projetrdi_new') }}">
+                Ajouter projet
+            </a>
+        
+    </ul>
+    {% endblock %}
+ {% block javascripts %}
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+           <script src="{{ asset('js/zoombox.js') }}" type="text/javascript"></script>
+            <script type="text/javascript">
+    jQuery(function($){
+            $('a.btn').zoombox();
+
+            
+            $('a.btn').zoombox({
+                    theme       : 'prettyphoto',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
+                opacity     : 0.8,              // Black overlay opacity
+              //  duration    : 800,              // Animation duration
+               animation   : true,             // Do we have to animate the box ?
+                width       : 650,              // Default width
+                height      : 400,              // Default height
+                gallery     : true,             // Allow gallery thumb view
+                autoplay : false                // Autoplay for video
+            });
+            
+        });     
+        
+    </script>
+           
+ {% endblock %}

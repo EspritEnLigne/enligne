@@ -321,10 +321,28 @@ class EspEnseignant extends \Esprit\UserBundle\Entity\EspEnseignant implements \
         return parent::getConges();
     }
 
+    public function addProjetrdi(\Esprit\UserBundle\Entity\ProjetRdi $projetrdi)
+    {
+        $this->__load();
+        return parent::addProjetrdi($projetrdi);
+    }
+
+    public function removeProjetrdi(\Esprit\UserBundle\Entity\ProjetRdi $projetrdi)
+    {
+        $this->__load();
+        return parent::removeProjetrdi($projetrdi);
+    }
+
+    public function getProjetrdi()
+    {
+        $this->__load();
+        return parent::getProjetrdi();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'idEns', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'cursus', 'conges', 'encadrement');
+        return array('__isInitialized__', 'id', 'idEns', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'cursus', 'conges', 'encadrement', 'projetrdi');
     }
 
     public function __clone()

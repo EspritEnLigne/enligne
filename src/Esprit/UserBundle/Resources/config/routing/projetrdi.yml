@@ -1,0 +1,30 @@
+projetrdi:
+    pattern:  /
+    defaults: { _controller: "EspritUserBundle:ProjetRdi:index" }
+
+projetrdi_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EspritUserBundle:ProjetRdi:show" }
+
+projetrdi_new:
+    pattern:  /new
+    defaults: { _controller: "EspritUserBundle:ProjetRdi:new" }
+
+projetrdi_create:
+    pattern:  /create
+    defaults: { _controller: "EspritUserBundle:ProjetRdi:create" }
+    requirements: { _method: post }
+
+projetrdi_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EspritUserBundle:ProjetRdi:edit" }
+
+projetrdi_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EspritUserBundle:ProjetRdi:update" }
+    requirements: { _method: post|put }
+
+projetrdi_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EspritUserBundle:ProjetRdi:delete" }
+    requirements: { _method: post|delete }

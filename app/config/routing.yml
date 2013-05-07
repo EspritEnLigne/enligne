@@ -11,6 +11,12 @@ EspEspritUser_enseignant:
 EspEspritUser_cursus:
     resource: "@EspritUserBundle/Resources/config/routing/espcursus.yml"
     prefix:   /espcursus
+EspEspritUser_projetrdi:
+    resource: "@EspritUserBundle/Resources/config/routing/projetrdi.yml"
+    prefix:   /projetrdi
+EspEspritUser_tacherdi:
+    resource: "@EspritUserBundle/Resources/config/routing/tacherdi.yml"
+    prefix:   /tacherdi
 EspEspritUser_conges:
     resource: "@EspritUserBundle/Resources/config/routing/espconges.yml"
     prefix:   /espconges

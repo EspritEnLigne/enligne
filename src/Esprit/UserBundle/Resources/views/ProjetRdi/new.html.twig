@@ -1,0 +1,16 @@
+
+
+{% block body -%}
+    <h1>ProjetRdi creation</h1>
+
+    <form action="{{ path('projetrdi_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+   
+</ul>
+{% endblock %}

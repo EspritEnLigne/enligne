@@ -1,0 +1,30 @@
+tacherdi:
+    pattern:  /
+    defaults: { _controller: "EspritUserBundle:TacheRdi:index" }
+
+tacherdi_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EspritUserBundle:TacheRdi:show" }
+
+tacherdi_new:
+    pattern:  /new
+    defaults: { _controller: "EspritUserBundle:TacheRdi:new" }
+
+tacherdi_create:
+    pattern:  /create
+    defaults: { _controller: "EspritUserBundle:TacheRdi:create" }
+    requirements: { _method: post }
+
+tacherdi_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EspritUserBundle:TacheRdi:edit" }
+
+tacherdi_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EspritUserBundle:TacheRdi:update" }
+    requirements: { _method: post|put }
+
+tacherdi_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EspritUserBundle:TacheRdi:delete" }
+    requirements: { _method: post|delete }

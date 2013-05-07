@@ -1,0 +1,19 @@
+
+
+{% block body -%}
+    <h1>Supprimer cette tache</h1>
+
+   
+
+        <ul class="record_actions">
+   
+    
+    <li>
+        <form action="{{ path('tacherdi_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

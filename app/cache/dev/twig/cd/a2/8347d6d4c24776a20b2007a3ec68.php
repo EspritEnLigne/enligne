@@ -30,8 +30,8 @@ class __TwigTemplate_cda28347d6d4c24776a20b2007a3ec68 extends Twig_Template
         // line 4
         echo "<h1>Liste des étudiants </h1>
 
-    <table class=\"table table-striped\">
-        <thead>
+     <table class=\"table table-bordered table-striped table-condensed table-hover\" style=\"width: 80%; margin-left: 10%;\">
+             <thead>
             <tr>
                
                 <th>Nomet</th>

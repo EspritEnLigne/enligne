@@ -77,7 +77,10 @@ class __TwigTemplate_51f813b0c1d65e1b9020d848e8dd7353 extends Twig_Template
             <p>Howdy, I'm in Section 2.</p>
         </div>
             <div class=\"tab-pane\" id=\"tab6\">
-            <p>Howdy, I'm in Section 2.</p>
+          <p>";
+        // line 34
+        $this->env->loadTemplate("EspritUserBundle:EspConges:conges.html.twig")->display($context);
+        echo "</p>
         </div>
             
     </div>
@@ -126,6 +129,6 @@ class __TwigTemplate_51f813b0c1d65e1b9020d848e8dd7353 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  113 => 109,  101 => 98,  98 => 97,  96 => 95,  93 => 94,  89 => 111,  87 => 94,  70 => 25,  64 => 22,  58 => 19,  45 => 8,  42 => 7,  33 => 3,  30 => 2,);
+        return array (  116 => 109,  104 => 98,  101 => 97,  99 => 95,  96 => 94,  92 => 111,  90 => 94,  82 => 34,  70 => 25,  64 => 22,  58 => 19,  45 => 8,  42 => 7,  33 => 3,  30 => 2,);
     }
 }

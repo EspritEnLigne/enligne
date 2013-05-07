@@ -1,0 +1,33 @@
+espconges:
+    pattern:  /
+    defaults: { _controller: "EspritUserBundle:EspConges:index" }
+
+espconges_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EspritUserBundle:EspConges:show" }
+
+espconges_new:
+    pattern:  /new
+    defaults: { _controller: "EspritUserBundle:EspConges:new" }
+espconges_conges:
+    pattern:  /conges
+    defaults: { _controller: "EspritUserBundle:EspConges:conges" }
+
+espconges_create:
+    pattern:  /create
+    defaults: { _controller: "EspritUserBundle:EspConges:create" }
+    requirements: { _method: post }
+
+espconges_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EspritUserBundle:EspConges:edit" }
+
+espconges_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EspritUserBundle:EspConges:update" }
+    requirements: { _method: post|put }
+
+espconges_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EspritUserBundle:EspConges:delete" }
+    requirements: { _method: post|delete }

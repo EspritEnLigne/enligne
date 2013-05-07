@@ -651,63 +651,134 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/espcursus')) {
-                // espcursus
-                if (rtrim($pathinfo, '/') === '/espcursus') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'espcursus');
+            if (0 === strpos($pathinfo, '/espc')) {
+                if (0 === strpos($pathinfo, '/espcursus')) {
+                    // espcursus
+                    if (rtrim($pathinfo, '/') === '/espcursus') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'espcursus');
+                        }
+
+                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::indexAction',  '_route' => 'espcursus',);
                     }
 
-                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::indexAction',  '_route' => 'espcursus',);
-                }
-
-                // espcursus_show
-                if (preg_match('#^/espcursus/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_show')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::showAction',));
-                }
-
-                // espcursus_new
-                if ($pathinfo === '/espcursus/new') {
-                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::newAction',  '_route' => 'espcursus_new',);
-                }
-
-                // espcursus_create
-                if ($pathinfo === '/espcursus/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_espcursus_create;
+                    // espcursus_show
+                    if (preg_match('#^/espcursus/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_show')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::showAction',));
                     }
 
-                    return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::createAction',  '_route' => 'espcursus_create',);
-                }
-                not_espcursus_create:
-
-                // espcursus_edit
-                if (preg_match('#^/espcursus/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::editAction',));
-                }
-
-                // espcursus_update
-                if (preg_match('#^/espcursus/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_espcursus_update;
+                    // espcursus_new
+                    if ($pathinfo === '/espcursus/new') {
+                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::newAction',  '_route' => 'espcursus_new',);
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::updateAction',));
-                }
-                not_espcursus_update:
+                    // espcursus_create
+                    if ($pathinfo === '/espcursus/create') {
+                        if ($this->context->getMethod() != 'POST') {
+                            $allow[] = 'POST';
+                            goto not_espcursus_create;
+                        }
 
-                // espcursus_delete
-                if (preg_match('#^/espcursus/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_espcursus_delete;
+                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::createAction',  '_route' => 'espcursus_create',);
+                    }
+                    not_espcursus_create:
+
+                    // espcursus_edit
+                    if (preg_match('#^/espcursus/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::editAction',));
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::deleteAction',));
+                    // espcursus_update
+                    if (preg_match('#^/espcursus/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                            $allow = array_merge($allow, array('POST', 'PUT'));
+                            goto not_espcursus_update;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::updateAction',));
+                    }
+                    not_espcursus_update:
+
+                    // espcursus_delete
+                    if (preg_match('#^/espcursus/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                            $allow = array_merge($allow, array('POST', 'DELETE'));
+                            goto not_espcursus_delete;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espcursus_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCursusController::deleteAction',));
+                    }
+                    not_espcursus_delete:
+
                 }
-                not_espcursus_delete:
+
+                if (0 === strpos($pathinfo, '/espconges')) {
+                    // espconges
+                    if (rtrim($pathinfo, '/') === '/espconges') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'espconges');
+                        }
+
+                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::indexAction',  '_route' => 'espconges',);
+                    }
+
+                    // espconges_show
+                    if (preg_match('#^/espconges/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espconges_show')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::showAction',));
+                    }
+
+                    // espconges_new
+                    if ($pathinfo === '/espconges/new') {
+                        return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::newAction',  '_route' => 'espconges_new',);
+                    }
+
+                    if (0 === strpos($pathinfo, '/espconges/c')) {
+                        // espconges_conges
+                        if ($pathinfo === '/espconges/conges') {
+                            return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::congesAction',  '_route' => 'espconges_conges',);
+                        }
+
+                        // espconges_create
+                        if ($pathinfo === '/espconges/create') {
+                            if ($this->context->getMethod() != 'POST') {
+                                $allow[] = 'POST';
+                                goto not_espconges_create;
+                            }
+
+                            return array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::createAction',  '_route' => 'espconges_create',);
+                        }
+                        not_espconges_create:
+
+                    }
+
+                    // espconges_edit
+                    if (preg_match('#^/espconges/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espconges_edit')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::editAction',));
+                    }
+
+                    // espconges_update
+                    if (preg_match('#^/espconges/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                            $allow = array_merge($allow, array('POST', 'PUT'));
+                            goto not_espconges_update;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espconges_update')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::updateAction',));
+                    }
+                    not_espconges_update:
+
+                    // espconges_delete
+                    if (preg_match('#^/espconges/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                            $allow = array_merge($allow, array('POST', 'DELETE'));
+                            goto not_espconges_delete;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'espconges_delete')), array (  '_controller' => 'Esprit\\UserBundle\\Controller\\EspCongesController::deleteAction',));
+                    }
+                    not_espconges_delete:
+
+                }
 
             }
 

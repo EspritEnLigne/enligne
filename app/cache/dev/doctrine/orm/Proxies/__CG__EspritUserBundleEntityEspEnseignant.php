@@ -303,10 +303,28 @@ class EspEnseignant extends \Esprit\UserBundle\Entity\EspEnseignant implements \
         return parent::getEncadrement();
     }
 
+    public function addConge(\Esprit\UserBundle\Entity\EspConges $conges)
+    {
+        $this->__load();
+        return parent::addConge($conges);
+    }
+
+    public function removeConge(\Esprit\UserBundle\Entity\EspConges $conges)
+    {
+        $this->__load();
+        return parent::removeConge($conges);
+    }
+
+    public function getConges()
+    {
+        $this->__load();
+        return parent::getConges();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'idEns', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'cursus', 'encadrement');
+        return array('__isInitialized__', 'id', 'idEns', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'cursus', 'conges', 'encadrement');
     }
 
     public function __clone()

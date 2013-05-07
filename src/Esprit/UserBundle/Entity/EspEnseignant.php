@@ -112,6 +112,10 @@ class EspEnseignant
      */
     private $cursus;
     /**
+     * @ORM\OneToMany(targetEntity="EspConges" ,mappedBy="espconges")
+     */
+    private $conges;
+    /**
      * @ORM\OneToMany(targetEntity="EspEtudiant" ,mappedBy="espens")
      */
     private $encadrement;
@@ -645,5 +649,38 @@ class EspEnseignant
     public function getEncadrement()
     {
         return $this->encadrement;
+    }
+
+    /**
+     * Add conges
+     *
+     * @param \Esprit\UserBundle\Entity\EspConges $conges
+     * @return EspEnseignant
+     */
+    public function addConge(\Esprit\UserBundle\Entity\EspConges $conges)
+    {
+        $this->conges[] = $conges;
+    
+        return $this;
+    }
+
+    /**
+     * Remove conges
+     *
+     * @param \Esprit\UserBundle\Entity\EspConges $conges
+     */
+    public function removeConge(\Esprit\UserBundle\Entity\EspConges $conges)
+    {
+        $this->conges->removeElement($conges);
+    }
+
+    /**
+     * Get conges
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getConges()
+    {
+        return $this->conges;
     }
 }

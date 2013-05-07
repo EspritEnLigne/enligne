@@ -26,6 +26,7 @@ class EspEnseignantController extends Controller
         $entity = $em->getRepository('EspritUserBundle:EspEnseignant')->find($id);
         $enscursus = $em->getRepository('EspritUserBundle:EspCursus')->findAll();
         $entities = $em->getRepository('EspritUserBundle:EspEtudiant')->findByespens($id);
+        $entitiesConges = $em->getRepository('EspritUserBundle:EspConges')->findByespconges($id);
 
      
         if (!$entity) {
@@ -37,6 +38,7 @@ class EspEnseignantController extends Controller
         /////////////
         return $this->render('EspritUserBundle:EspEnseignant:index.html.twig', array(
             'enscursus'=>$enscursus,
+            'entitiesConges'=>$entitiesConges,
             'entities' => $entities,
             'entity'      => $entity,
              'edit_form'   => $editForm->createView(),

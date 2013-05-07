@@ -43,10 +43,10 @@
             <label class="control-label" for="inputEmail">{{ form_label(edit_form.datesortie) }}</label>
             <div class="controls"> {{ form_widget(edit_form.datesortie) }} </div>
         </div>
-        <h1>Cursus scolaire et universitaire</h1>
-         <table class="table table-striped">
-                 <tr>
-                    <td>Type</td>
+        
+          <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
+         <h3>Cursus scolaire et universitaire</h3>
+              <tr>
                     <td>Grade</td>
                     <td>Annee de début</td>
                     <td>Annee fin</td>
@@ -55,11 +55,12 @@
         {% for cursus in enscursus %}
           {%if cursus.libelle is sameas("Cursus scolaire et universitaire") %}
                   <tr>
-                      <td> {{cursus.libelle }}</td>  
+                      
                       <td>{{ cursus.type }}  </td>
                       <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
                       <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
-                      <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                        <td>  <a class="btn btn-success" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/edit">Edit</a>
+                          <a class="btn btn-danger" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/show">Delete</a></td>
                 
                   </tr>
 
@@ -68,10 +69,10 @@
         
          {% endfor %}
                    </table>
-        <h1>Cursus à ESPRIT</h1>
-         <table class="table table-striped">
-                 <tr>
-                    <td>Type</td>
+       
+        <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
+            <h3>Cursus à ESPRIT</h3>
+            <tr>
                     <td>Grade</td>
                     <td>Annee de début</td>
                     <td>Annee fin</td>
@@ -80,11 +81,12 @@
         {% for cursus in enscursus %}
           {%if cursus.libelle is sameas("Cursus à ESPRIT") %}
                   <tr>
-                    <td> {{cursus.libelle }}</td>  
+                     
                     <td>{{ cursus.type }}  </td>
                     <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
                     <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
-                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                       <td>  <a class="btn btn-success" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/edit">Edit</a>
+                          <a class="btn btn-danger" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/show">Delete</a></td>
                 
                   </tr>
          
@@ -92,10 +94,10 @@
         
          {% endfor %}
                    </table>
-        <h1>Fonction à ESPRIT</h1>
-         <table class="table table-striped">
-                 <tr>
-                    <td>Type</td>
+        
+          <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
+         <h3>Fonction à ESPRIT</h3>
+              <tr>
                     <td>Grade</td>
                     <td>Annee de début</td>
                     <td>Annee fin</td>
@@ -104,11 +106,12 @@
         {% for cursus in enscursus %}
           {%if cursus.libelle is sameas("Fonction à ESPRIT") %}
                   <tr>
-                    <td> {{cursus.libelle }}</td>  
+                     
                     <td>{{ cursus.type }}  </td>
                     <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
                     <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
-                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                       <td>  <a class="btn btn-success" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/edit">Edit</a>
+                          <a class="btn btn-danger" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/show">Delete</a></td>
                 
                   </tr>
          
@@ -116,10 +119,10 @@
         
          {% endfor %}
                    </table>
-        <h1>Unité pédagogique</h1>
-         <table class="table table-striped">
-                 <tr>
-                    <td>Type</td>
+        
+           <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
+        <h3>Unité pédagogique</h3>
+               <tr>
                     <td>Grade</td>
                     <td>Annee de début</td>
                     <td>Annee fin</td>
@@ -128,11 +131,12 @@
         {% for cursus in enscursus %}
           {%if cursus.libelle is sameas("Unité pédagogique") %}
                   <tr>
-                    <td> {{cursus.libelle }}</td>  
+                     
                     <td>{{ cursus.type }}  </td>
                     <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
                     <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
-                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                     <td>  <a class="btn btn-success" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/edit">Edit</a>
+                          <a class="btn btn-danger" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/show">Delete</a></td>
                 
                   </tr>
          
@@ -140,10 +144,10 @@
         
          {% endfor %}
                    </table>
-        <h1>Expérience avant ESPRIT</h1>
-         <table class="table table-striped">
-                 <tr>
-                    <td>Type</td>
+        
+          <table class="table table-bordered table-striped table-condensed table-hover" style="width: 80%; margin-left: 10%;">
+         <h3>Expérience avant ESPRIT</h3>
+              <tr>
                     <td>Grade</td>
                     <td>Annee de début</td>
                     <td>Annee fin</td>
@@ -152,11 +156,12 @@
         {% for cursus in enscursus %}
           {%if cursus.libelle is sameas("Expérience avant ESPRIT") %}
                   <tr>
-                    <td> {{cursus.libelle }}</td>  
+                    
                     <td>{{ cursus.type }}  </td>
                     <td>{{ cursus.datedebut|date('Y-m-d H:i:s')}}</td>
                     <td>{{ cursus.datefin|date('Y-m-d H:i:s')}}</td>
-                    <td>  <a class="btn" href="/enligne/web/app_dev.php/espcursus/{{cursus.id}}/show">Edit</a></td>
+                   <td>  <a class="btn btn-success" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/edit">Edit</a>
+                          <a class="btn btn-danger" href="/esprit/web/app_dev.php/espcursus/{{cursus.id}}/show">Delete</a></td>
                   </tr>
          
       {%endif%}
@@ -170,7 +175,7 @@
                 
                {{ form_rest(edit_form) }}
                 <button type="submit" class="btn">Edit</button>
-                <a class="btn" href="/enligne/web/app_dev.php/espcursus/new">Ajouter</a>
+                <a class="btn  btn-primary" href="/esprit/web/app_dev.php/espcursus/new">Ajouter</a>
                
             </div>
         </div>
@@ -186,12 +191,12 @@
 
             
             $('a.btn').zoombox({
-                    theme       : 'darkprettyphoto',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
-                //opacity     : 0.8,              // Black overlay opacity
+                    theme       : 'prettyphoto',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
+                opacity     : 0.8,              // Black overlay opacity
               //  duration    : 800,              // Animation duration
-              //  animation   : true,             // Do we have to animate the box ?
-                width       : 800,              // Default width
-                height      : 600,              // Default height
+               animation   : true,             // Do we have to animate the box ?
+                width       : 650,              // Default width
+                height      : 400,              // Default height
                 gallery     : true,             // Allow gallery thumb view
                 autoplay : false                // Autoplay for video
             });

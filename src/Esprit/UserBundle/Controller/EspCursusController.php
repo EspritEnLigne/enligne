@@ -46,13 +46,9 @@ class EspCursusController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('espcursus_show', array('id' => $entity->getId())));
-        }
+      return $this->render('EspritUserBundle:EspCursus:resultat.html.twig');  }
 
-        return $this->render('EspritUserBundle:EspCursus:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+        return $this->render('EspritUserBundle:EspCursus:resultat.html.twig');
     }
 
     /**
@@ -137,10 +133,10 @@ class EspCursusController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('espcursus_edit', array('id' => $id)));
-        }
+   
+return $this->render('EspritUserBundle:EspCursus:resultat.html.twig');      }
 
-        return $this->render('EspritUserBundle:EspCursus:edit.html.twig', array(
+        return $this->render('EspritUserBundle:EspCursus:resultat.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -167,8 +163,7 @@ class EspCursusController extends Controller
             $em->remove($entity);
             $em->flush();
         }
-
-        return $this->redirect($this->generateUrl('espcursus'));
+return $this->render('EspritUserBundle:EspCursus:resultat.html.twig');
     }
 
     /**

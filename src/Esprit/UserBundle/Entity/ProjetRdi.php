@@ -222,4 +222,7 @@ class ProjetRdi
     {
         return $this->taches;
     }
+    public function __toString() {
+        return $this->getTitre();
+    }
 }

@@ -13,6 +13,7 @@ class TacheRdiType extends AbstractType
         $builder
             ->add('titre')
             ->add('avancement')
+            ->add('projet')    
         ;
     }
 

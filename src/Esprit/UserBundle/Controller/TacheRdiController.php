@@ -36,8 +36,9 @@ class TacheRdiController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new TacheRdi();
-//        $projet = $em->getRepository('EspritUserBundle:ProjetRdi')->find($id);
-//        $entity-> setProjet($projet);
+        $em = $this->getDoctrine()->getManager();
+        $projet = $em->getRepository('EspritUserBundle:ProjetRdi')->find($id);
+        $entity-> setProjet($projet);
         $form = $this->createForm(new TacheRdiType(), $entity);
         $form->bind($request);
 

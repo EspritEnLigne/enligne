@@ -75,27 +75,23 @@ class __TwigTemplate_488acd182f89baa9fd81a89bb0a1b868 extends Twig_Template
             // line 29
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("projetrdi_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">delete</a>
-                        <a class=\"btn btn-mini btn-primary\"href=\"";
-            // line 30
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tacherdi_new"), "html", null, true);
-            echo "\">add tache</a>
                   
                 </ul>
                 </td>
                 <td style=\"width: 30px;\">";
-            // line 34
+            // line 33
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "titre"), "html", null, true);
             echo "</td>
                 <td style=\"width: 30px;\">";
-            // line 35
+            // line 34
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "description"), "html", null, true);
             echo "</td>
                 <td style=\"width: 30px;\">";
-            // line 36
+            // line 35
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "uR"), "html", null, true);
             echo "</td>
                 <td style=\"width: 30px;\">";
-            // line 37
+            // line 36
             if ($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "dateaffectation")) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "dateaffectation"), "Y-m-d"), "html", null, true);
             }
@@ -103,51 +99,51 @@ class __TwigTemplate_488acd182f89baa9fd81a89bb0a1b868 extends Twig_Template
                 <td >
                     <table  class=\"table\">
                 ";
-            // line 40
+            // line 39
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "taches"));
             foreach ($context['_seq'] as $context["_key"] => $context["entit"]) {
-                // line 41
+                // line 40
                 echo "                            
                             <tr><td style=\"width: 150px\">";
-                // line 42
+                // line 41
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entit"]) ? $context["entit"] : $this->getContext($context, "entit")), "titre"), "html", null, true);
                 echo "
                                     <a class=\"btn btn-mini btn-success\"href=\"";
-                // line 43
+                // line 42
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tacherdi_edit", array("id" => $this->getAttribute((isset($context["entit"]) ? $context["entit"] : $this->getContext($context, "entit")), "id"))), "html", null, true);
                 echo "\">edit</a>
                         <a class=\"btn btn-mini btn-danger\"href=\"";
-                // line 44
+                // line 43
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tacherdi_show", array("id" => $this->getAttribute((isset($context["entit"]) ? $context["entit"] : $this->getContext($context, "entit")), "id"))), "html", null, true);
                 echo "\">delete</a>
                     
                                 </td>
                                 <td>
                                 ";
-                // line 48
+                // line 47
                 if (($this->getAttribute((isset($context["entit"]) ? $context["entit"] : $this->getContext($context, "entit")), "avancement") == 1)) {
-                    // line 49
+                    // line 48
                     echo "
                                         <div class=\"progress progress-striped\">
                                             <div class=\"bar\" style=\"width: 25%;\"></div>
                                         </div>
                                          ";
                 } elseif (($this->getAttribute((isset($context["entit"]) ? $context["entit"] : $this->getContext($context, "entit")), "avancement") == 2)) {
-                    // line 54
+                    // line 53
                     echo "                                        <div class=\"progress progress-striped\">
                                             <div class=\"bar\" style=\"width: 50%;\"></div>
                                         </div>  
                                                 ";
                 } elseif (($this->getAttribute((isset($context["entit"]) ? $context["entit"] : $this->getContext($context, "entit")), "avancement") == 3)) {
-                    // line 58
+                    // line 57
                     echo "                                        <div class=\"progress progress-striped\">
                                             <div class=\"bar\" style=\"width: 75%;\"></div>
                                         </div>  
 
                                           ";
                 } else {
-                    // line 63
+                    // line 62
                     echo "                                        <div class=\"progress progress-striped\">
                                             <div class=\"bar\" style=\"width: 100%;\"></div>
                                         </div> 
@@ -156,7 +152,7 @@ class __TwigTemplate_488acd182f89baa9fd81a89bb0a1b868 extends Twig_Template
 
                                  ";
                 }
-                // line 70
+                // line 69
                 echo "
                                     </td>
                             
@@ -166,7 +162,7 @@ class __TwigTemplate_488acd182f89baa9fd81a89bb0a1b868 extends Twig_Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entit'], $context['_parent'], $context['loop']);
             $context = array_merge($_parent, array_intersect_key($context, $_parent));
-            // line 75
+            // line 74
             echo "                        </table>
                 </td>
                 
@@ -176,30 +172,35 @@ class __TwigTemplate_488acd182f89baa9fd81a89bb0a1b868 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 80
+        // line 79
         echo "        </tbody>
     </table>
 
         <ul>
       
             <a class=\"btn btn-large btn-primary\" href=\"";
-        // line 85
+        // line 84
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("projetrdi_new"), "html", null, true);
         echo "\">
                 Ajouter projet
             </a>
+           <a class=\"btn btn-large btn-primary\"href=\"";
+        // line 87
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tacherdi_new"), "html", null, true);
+        echo "\">add tache</a>
+                
         
     </ul>
     ";
     }
 
-    // line 91
+    // line 92
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 92
+        // line 93
         echo " <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js\"></script>
            <script src=\"";
-        // line 93
+        // line 94
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/zoombox.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
             <script type=\"text/javascript\">
@@ -237,6 +238,6 @@ class __TwigTemplate_488acd182f89baa9fd81a89bb0a1b868 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  203 => 93,  200 => 92,  197 => 91,  187 => 85,  180 => 80,  170 => 75,  160 => 70,  151 => 63,  144 => 58,  138 => 54,  131 => 49,  129 => 48,  122 => 44,  118 => 43,  114 => 42,  111 => 41,  107 => 40,  99 => 37,  95 => 36,  91 => 35,  87 => 34,  80 => 30,  76 => 29,  72 => 28,  66 => 24,  62 => 23,  44 => 7,  41 => 6,  33 => 3,  30 => 2,);
+        return array (  204 => 94,  201 => 93,  198 => 92,  189 => 87,  183 => 84,  176 => 79,  166 => 74,  156 => 69,  147 => 62,  140 => 57,  134 => 53,  127 => 48,  125 => 47,  118 => 43,  114 => 42,  110 => 41,  107 => 40,  103 => 39,  95 => 36,  91 => 35,  87 => 34,  83 => 33,  76 => 29,  72 => 28,  66 => 24,  62 => 23,  44 => 7,  41 => 6,  33 => 3,  30 => 2,);
     }
 }

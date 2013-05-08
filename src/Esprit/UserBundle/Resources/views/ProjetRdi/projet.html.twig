@@ -27,7 +27,6 @@
                   
                         <a class="btn btn-mini btn-success"href="{{ path('projetrdi_edit', { 'id': entity.id }) }}">edit</a>
                         <a class="btn btn-mini btn-danger"href="{{ path('projetrdi_show', { 'id': entity.id }) }}">delete</a>
-                        <a class="btn btn-mini btn-primary"href="{{ path('tacherdi_new')}}">add tache</a>
                   
                 </ul>
                 </td>
@@ -85,6 +84,8 @@
             <a class="btn btn-large btn-primary" href="{{ path('projetrdi_new') }}">
                 Ajouter projet
             </a>
+           <a class="btn btn-large btn-primary"href="{{ path('tacherdi_new')}}">add tache</a>
+                
         
     </ul>
     {% endblock %}

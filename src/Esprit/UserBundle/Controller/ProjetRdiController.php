@@ -38,9 +38,9 @@ class ProjetRdiController extends Controller
         $entity  = new ProjetRdi();
         $form = $this->createForm(new ProjetRdiType(), $entity);
         $form->bind($request);
-//        $em = $this->getDoctrine()->getManager();
-//        $entit = $em->getRepository('EspritUserBundle:EspEnseignant')->find(41);
-//        $entity->setEspens($entit);
+         $em = $this->getDoctrine()->getManager();
+     $entit = $em->getRepository('EspritUserBundle:EspEnseignant')->find(41);
+        $entity->setEspens($entit);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);

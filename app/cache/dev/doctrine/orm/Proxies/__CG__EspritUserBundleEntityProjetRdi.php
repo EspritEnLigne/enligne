@@ -129,6 +129,12 @@ class ProjetRdi extends \Esprit\UserBundle\Entity\ProjetRdi implements \Doctrine
         return parent::getTaches();
     }
 
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
 
     public function __sleep()
     {

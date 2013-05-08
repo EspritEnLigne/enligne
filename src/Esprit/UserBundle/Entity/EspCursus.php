@@ -50,7 +50,7 @@ class EspCursus
     private $datefin;
     /**
      * @ORM\ManyToOne(targetEntity="EspEnseignant" , inversedBy="cursus")
-     * @ORM\JoinColumn(name="ens_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="ens_id", referencedColumnName="id_ens")
      */
     private $espens;
 

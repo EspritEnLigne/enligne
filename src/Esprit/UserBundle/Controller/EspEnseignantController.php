@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Esprit\UserBundle\Entity\EspEnseignant;
 use Esprit\UserBundle\Form\EspEnseignantType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * EspEnseignant controller.
@@ -15,13 +16,15 @@ use Esprit\UserBundle\Form\EspEnseignantType;
 class EspEnseignantController extends Controller
 {
     /**
-     * Lists all EspEnseignant entities.
+     * Creates a new News entity.
      *
+     * @Secure(roles="ROLE_ENSEIGNANT")
      */
     public function indexAction()
     {    
+        $iduser = $this->get('security.context')->getToken()->getUser()->getIdentifiant();
        
-        $id=41;
+        $id=''.$iduser;
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('EspritUserBundle:EspEnseignant')->find($id);
         $enscursus = $em->getRepository('EspritUserBundle:EspCursus')->findAll();
@@ -47,9 +50,10 @@ class EspEnseignantController extends Controller
             'delete_form' => $deleteForm->createView(),        ));
     }
 
-    /**
-     * Creates a new EspEnseignant entity.
+     /**
+     * Creates a new News entity.
      *
+     * @Secure(roles="ROLE_ENSEIGNANT")
      */
     public function createAction(Request $request)
     {
@@ -71,9 +75,10 @@ class EspEnseignantController extends Controller
         ));
     }
 
-    /**
-     * Displays a form to create a new EspEnseignant entity.
+     /**
+     * Creates a new News entity.
      *
+     * @Secure(roles="ROLE_ENSEIGNANT")
      */
     public function newAction()
     {
@@ -86,9 +91,10 @@ class EspEnseignantController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a EspEnseignant entity.
+     /**
+     * Creates a new News entity.
      *
+     * @Secure(roles="ROLE_ENSEIGNANT")
      */
     public function showAction($id)
     {
@@ -107,9 +113,10 @@ class EspEnseignantController extends Controller
             'delete_form' => $deleteForm->createView(),        ));
     }
 
-    /**
-     * Displays a form to edit an existing EspEnseignant entity.
+     /**
+     * Creates a new News entity.
      *
+     * @Secure(roles="ROLE_ENSEIGNANT")
      */
     public function editAction($id)
     {
@@ -133,9 +140,10 @@ class EspEnseignantController extends Controller
         
     }
 
-    /**
-     * Edits an existing EspEnseignant entity.
+     /**
+     * Creates a new News entity.
      *
+     * @Secure(roles="ROLE_ENSEIGNANT")
      */
     public function updateAction(Request $request, $id)
     {
@@ -167,9 +175,10 @@ class EspEnseignantController extends Controller
         ));
     }
 
-    /**
-     * Deletes a EspEnseignant entity.
+     /**
+     * Creates a new News entity.
      *
+     * @Secure(roles="ROLE_ENSEIGNANT")
      */
     public function deleteAction(Request $request, $id)
     {

@@ -25,7 +25,7 @@ class __TwigTemplate_420365d486147a1dc676ab51ee591125 extends Twig_Template
                 <th>Identifiant</th>
                 <td>";
         // line 8
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idEns"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
         echo "</td>
             </tr>
             <tr>
@@ -108,6 +108,6 @@ class __TwigTemplate_420365d486147a1dc676ab51ee591125 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  94 => 64,  84 => 40,  77 => 36,  63 => 28,  56 => 24,  49 => 20,  35 => 12,  28 => 8,  19 => 1,  119 => 109,  107 => 98,  104 => 97,  102 => 95,  99 => 94,  95 => 111,  93 => 94,  85 => 34,  79 => 31,  70 => 32,  64 => 22,  58 => 19,  45 => 8,  42 => 16,  33 => 3,  30 => 2,);
+        return array (  94 => 64,  84 => 40,  77 => 36,  70 => 32,  63 => 28,  56 => 24,  49 => 20,  42 => 16,  35 => 12,  28 => 8,  19 => 1,);
     }
 }

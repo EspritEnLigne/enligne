@@ -59,7 +59,7 @@ class __TwigTemplate_92e306d0ae7beeb08f81641bf5c549cc extends Twig_Template
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), 'widget');
         echo "
         <p>
-            <button type=\"submit\">Edit</button>
+            <button  class=\"btn btn-success\" type=\"submit\">Edit</button>
         </p>
     </form>
 

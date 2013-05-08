@@ -45,22 +45,16 @@ class EspEnseignant extends \Esprit\UserBundle\Entity\EspEnseignant implements \
     public function getId()
     {
         if ($this->__isInitialized__ === false) {
-            return (int) $this->_identifier["id"];
+            return $this->_identifier["id"];
         }
         $this->__load();
         return parent::getId();
     }
 
-    public function setIdEns($idEns)
+    public function setId($id)
     {
         $this->__load();
-        return parent::setIdEns($idEns);
-    }
-
-    public function getIdEns()
-    {
-        $this->__load();
-        return parent::getIdEns();
+        return parent::setId($id);
     }
 
     public function setNomEns($nomEns)
@@ -342,7 +336,7 @@ class EspEnseignant extends \Esprit\UserBundle\Entity\EspEnseignant implements \
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'idEns', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'cursus', 'conges', 'encadrement', 'projetrdi');
+        return array('__isInitialized__', 'id', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'cursus', 'conges', 'encadrement', 'projetrdi');
     }
 
     public function __clone()

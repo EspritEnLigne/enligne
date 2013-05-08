@@ -15,7 +15,7 @@ class EspEnseignantType extends AbstractType
                 ->add('civilite', 'choice', array(
                     'choices' => array('Mr' => 'Mr', 'Mme' => 'Mme', 'Mlle' => 'Mlle'),
                     'required' => false,))
-                ->add('idEns')
+                ->add('id')
                 ->add('cin')
                 ->add('cnss')
                 ->add('tel1')

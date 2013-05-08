@@ -44,7 +44,7 @@ class EspConges
     
     /**
      * @ORM\ManyToOne(targetEntity="EspEnseignant" , inversedBy="conges")
-     * @ORM\JoinColumn(name="ens_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="ens_id", referencedColumnName="id_ens")
      */
     private $espconges;
 

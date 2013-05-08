@@ -54,7 +54,7 @@ class EspEtudiant
     private $lieuNaisEt;
     /**
      * @ORM\ManyToOne(targetEntity="EspEnseignant" , inversedBy="encadrement")
-     * @ORM\JoinColumn(name="id_enc", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_enc", referencedColumnName="id_ens")
      */
     private $espens;
     

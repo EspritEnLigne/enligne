@@ -10,7 +10,10 @@ namespace Esprit\UserBundle\Controller;
 class EspEnseignantController__JMSInjector
 {
     public static function inject($container) {
-        $instance = new \Esprit\UserBundle\Controller\EspEnseignantController();
+        require_once 'C:/wamp/www/esprit/app/cache/dev/jms_diextra/proxies/Esprit-UserBundle-Controller-EspEnseignantController.php';
+        $a = new \JMS\AopBundle\Aop\InterceptorLoader($container, array('Esprit\\UserBundle\\Controller\\EspEnseignantController' => array('indexAction' => array(0 => 'security.access.method_interceptor'), 'createAction' => array(0 => 'security.access.method_interceptor'), 'newAction' => array(0 => 'security.access.method_interceptor'), 'showAction' => array(0 => 'security.access.method_interceptor'), 'editAction' => array(0 => 'security.access.method_interceptor'), 'updateAction' => array(0 => 'security.access.method_interceptor'), 'deleteAction' => array(0 => 'security.access.method_interceptor'))));
+        $instance = new \EnhancedProxy_fcdc1435c21998c9ea8082d127d3d76059deb177\__CG__\Esprit\UserBundle\Controller\EspEnseignantController();
+        $instance->__CGInterception__setLoader($a);
         return $instance;
     }
 }

@@ -12,21 +12,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class EspEnseignant
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+    
 
     /**
      * @var string
      *
      * @ORM\Column(name="id_ens", type="string", length=10)
+     * @ORM\Id
      */
-    private $idEns;
+    private $id;
 
     /**
      * @var string
@@ -170,27 +164,18 @@ class EspEnseignant
     }
 
     /**
-     * Set idEns
+     * Set id
      *
-     * @param string $idEns
+     * @param string $id
      * @return EspEnseignant
      */
-    public function setIdEns($idEns)
+    public function setId($id)
     {
-        $this->idEns = $idEns;
+        $this->id = $id;
     
         return $this;
     }
-
-    /**
-     * Get idEns
-     *
-     * @return string 
-     */
-    public function getIdEns()
-    {
-        return $this->idEns;
-    }
+   
 
     /**
      * Set nomEns

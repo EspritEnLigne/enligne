@@ -50,7 +50,7 @@ class ProjetRdi
     private $description;
     /**
      * @ORM\ManyToOne(targetEntity="EspEnseignant" , inversedBy="projetrdi")
-     * @ORM\JoinColumn(name="id_projetrdi", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_projetrdi", referencedColumnName="id_ens")
      */
     private $espens;
     /**

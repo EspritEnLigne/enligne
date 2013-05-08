@@ -61,7 +61,7 @@ class __TwigTemplate_7d4ec01c9d635a3c044f9d2f7371a443 extends Twig_Template
         // line 30
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 38
+        // line 45
         echo "    </body>
 </html>
 ";
@@ -93,14 +93,21 @@ class __TwigTemplate_7d4ec01c9d635a3c044f9d2f7371a443 extends Twig_Template
     public function block_javascripts($context, array $blocks = array())
     {
         // line 31
-        echo "    ";
-        // line 33
-        echo "        <script
-        src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 35
+        echo "        <script src=\"http://code.jquery.com/jquery-1.9.1.js\"></script>
+        <script src=\"http://code.jquery.com/ui/1.10.2/jquery-ui.js\"></script>
+        <script>
+       \$(function() {
+       \$( \".date\" ).datepicker({dateFormat: 'dd/mm/yy'});
+       });
+            </script>
+    ";
+        // line 40
+        echo "            <script
+            src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
+            <script type=\"text/javascript\" src=\"";
+        // line 42
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
-        // line 36
+        // line 43
         echo "\"></script>
   ";
     }
@@ -117,6 +124,6 @@ class __TwigTemplate_7d4ec01c9d635a3c044f9d2f7371a443 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  102 => 35,  98 => 33,  93 => 30,  88 => 29,  80 => 7,  77 => 6,  71 => 5,  65 => 38,  62 => 30,  60 => 29,  54 => 25,  49 => 19,  35 => 10,  29 => 5,  23 => 1,  116 => 109,  104 => 36,  101 => 97,  99 => 95,  96 => 31,  92 => 111,  90 => 94,  82 => 34,  70 => 25,  64 => 22,  58 => 19,  45 => 18,  42 => 7,  33 => 6,  30 => 2,);
+        return array (  111 => 43,  109 => 42,  105 => 40,  96 => 31,  93 => 30,  88 => 29,  80 => 7,  77 => 6,  71 => 5,  65 => 45,  62 => 30,  60 => 29,  54 => 25,  49 => 19,  45 => 18,  35 => 10,  33 => 6,  29 => 5,  23 => 1,);
     }
 }

@@ -91,7 +91,10 @@
             </a>
         </li>
     </ul>#}
-{% block javascripts %}
+
+
+    {% endblock %}
+      {% block javascripts %}
     {# Ajoutez ces javascripts si vous comptez vous servir des
 fonctionnalités du bootstrap Twitter #}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -108,4 +111,3 @@ $( ".date" ).datepicker({dateFormat: 'dd/mm/yy'});
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>#}
 
   {% endblock %}
-    {% endblock %}

@@ -46,13 +46,9 @@ class ProjetRdiController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('projetrdi_show', array('id' => $entity->getId())));
-        }
+          return $this->render('EspritUserBundle:ProjetRdi:resultat.html.twig');  }
 
-        return $this->render('EspritUserBundle:ProjetRdi:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+        return $this->render('EspritUserBundle:ProjetRdi:resultat.html.twig');
     }
 
     /**
@@ -137,10 +133,9 @@ class ProjetRdiController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('projetrdi_edit', array('id' => $id)));
-        }
+          return $this->render('EspritUserBundle:ProjetRdi:resultat.html.twig');      }
 
-        return $this->render('EspritUserBundle:ProjetRdi:edit.html.twig', array(
+        return $this->render('EspritUserBundle:ProjetRdi:resultat.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -168,7 +163,7 @@ class ProjetRdiController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('projetrdi'));
+        return $this->render('EspritUserBundle:ProjetRdi:resultat.html.twig');
     }
 
     /**

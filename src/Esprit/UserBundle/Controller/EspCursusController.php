@@ -134,7 +134,7 @@ class EspCursusController extends Controller
             $em->flush();
 
    
-return $this->render('EspritUserBundle:EspCursus:resultat.html.twig');      }
+         return $this->render('EspritUserBundle:EspCursus:resultat.html.twig');      }
 
         return $this->render('EspritUserBundle:EspCursus:resultat.html.twig', array(
             'entity'      => $entity,

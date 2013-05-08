@@ -36,9 +36,8 @@ class TacheRdiController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new TacheRdi();
-        $em = $this->getDoctrine()->getManager();
-        $projet = $em->getRepository('EspritUserBundle:ProjetRdi')->find($id);
-        $entity-> setProjet($projet);
+//        $projet = $em->getRepository('EspritUserBundle:ProjetRdi')->find($id);
+//        $entity-> setProjet($projet);
         $form = $this->createForm(new TacheRdiType(), $entity);
         $form->bind($request);
 
@@ -47,13 +46,9 @@ class TacheRdiController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tacherdi_show', array('id' => $entity->getId())));
-        }
+           return $this->render('EspritUserBundle:TacheRdi:resultat.html.twig');  }
 
-        return $this->render('EspritUserBundle:TacheRdi:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+        return $this->render('EspritUserBundle:TacheRdi:resultat.html.twig');
     }
 
     /**
@@ -138,10 +133,9 @@ class TacheRdiController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tacherdi_edit', array('id' => $id)));
-        }
+          return $this->render('EspritUserBundle:TacheRdi:resultat.html.twig');      }
 
-        return $this->render('EspritUserBundle:TacheRdi:edit.html.twig', array(
+        return $this->render('EspritUserBundle:TacheRdi:resultat.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -169,7 +163,7 @@ class TacheRdiController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('tacherdi'));
+         return $this->render('EspritUserBundle:TacheRdi:resultat.html.twig');
     }
 
     /**

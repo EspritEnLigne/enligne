@@ -287,6 +287,7 @@
       <parameter key="ROLE_ADMIN" type="collection">
         <parameter>ROLE_SCOL</parameter>
         <parameter>ROLE_STAGE</parameter>
+        <parameter>ROLE_ENSEIGNANT</parameter>
         <parameter>ROLE_ETUDIANT</parameter>
         <parameter>ROLE_SEMINAIRE</parameter>
         <parameter>ROLE_COMMUNICATION</parameter>
@@ -509,8 +510,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/esprit/app/cache/dev/jms_diextra/doctrine/EntityManager_518832e23d871.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager518832e23d871_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/esprit/app/cache/dev/jms_diextra/doctrine/EntityManager_518a6108303b0.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager518a6108303b0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -3231,7 +3232,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>518832e162e42</argument>
+            <argument>518a61078c10e</argument>
           </service>
         </argument>
         <argument type="service">
@@ -3245,7 +3246,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>518832e162e42</argument>
+            <argument>518a61078c10e</argument>
           </service>
         </argument>
       </argument>
@@ -3305,6 +3306,7 @@
         <argument key="ROLE_ADMIN" type="collection">
           <argument>ROLE_SCOL</argument>
           <argument>ROLE_STAGE</argument>
+          <argument>ROLE_ENSEIGNANT</argument>
           <argument>ROLE_ETUDIANT</argument>
           <argument>ROLE_SEMINAIRE</argument>
           <argument>ROLE_COMMUNICATION</argument>
@@ -3456,6 +3458,17 @@
         </argument>
         <argument type="collection">
           <argument>ROLE_SONATA_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/espenseigant/</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>ROLE_ENSEIGNANT</argument>
         </argument>
         <argument>null</argument>
       </call>
@@ -3632,7 +3645,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>518832e162e42</argument>
+            <argument>518a61078c10e</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -3745,7 +3758,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>518832e162e42</argument>
+            <argument>518a61078c10e</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -4207,8 +4220,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager518832e23d871_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/wamp/www/esprit/app/cache/dev/jms_diextra/doctrine/EntityManager_518832e23d871.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager518a6108303b0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/wamp/www/esprit/app/cache/dev/jms_diextra/doctrine/EntityManager_518a6108303b0.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>

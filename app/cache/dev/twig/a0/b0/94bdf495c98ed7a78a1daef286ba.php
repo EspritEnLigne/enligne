@@ -10,64 +10,74 @@ class __TwigTemplate_a0b094bdf495c98ed7a78a1daef286ba extends Twig_Template
         $this->parent = false;
 
         $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "
-";
-        // line 2
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 5
         $this->displayBlock('body', $context, $blocks);
+        // line 20
+        echo " ";
+        $this->displayBlock('javascripts', $context, $blocks);
     }
 
+    // line 1
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        // line 2
+        echo "      <link rel=\"stylesheet\" href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("css/bootstrap.css"), "html", null, true);
+        echo "\" type=\"text/css\" />
+    
+    ";
+    }
+
+    // line 5
     public function block_body($context, array $blocks = array())
     {
-        // line 3
-        echo "<h1>ProjetRdi edit</h1>
+        // line 6
+        echo "<h1>Modifier un projet</h1>
 
     <form action=\"";
-        // line 5
+        // line 8
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("projetrdi_update", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), 'enctype');
         echo ">
         <input type=\"hidden\" name=\"_method\" value=\"PUT\" />
         ";
-        // line 7
+        // line 10
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), 'widget');
         echo "
         <p>
-            <button type=\"submit\">Edit</button>
+            <button  class=\"btn btn-success\"  type=\"submit\">Edit</button>
         </p>
     </form>
 
         <ul class=\"record_actions\">
-    <li>
-        <a href=\"";
-        // line 15
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("projetrdi"), "html", null, true);
-        echo "\">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action=\"";
-        // line 20
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("projetrdi_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-        echo "\" method=\"post\">
-            <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
-            ";
-        // line 22
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'widget');
-        echo "
-            <button type=\"submit\">Delete</button>
-        </form>
-    </li>
+ 
 </ul>
 ";
+    }
+
+    // line 20
+    public function block_javascripts($context, array $blocks = array())
+    {
+        // line 21
+        echo "    ";
+        // line 23
+        echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
+    <script type=\"text/javascript\" src=\"";
+        // line 24
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
+        echo "\"></script>
+  ";
     }
 
     public function getTemplateName()
@@ -77,6 +87,6 @@ class __TwigTemplate_a0b094bdf495c98ed7a78a1daef286ba extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  64 => 22,  59 => 20,  51 => 15,  40 => 7,  33 => 5,  29 => 3,  23 => 2,  20 => 1,);
+        return array (  78 => 24,  75 => 23,  73 => 21,  70 => 20,  56 => 10,  49 => 8,  45 => 6,  42 => 5,  34 => 2,  31 => 1,  26 => 20,  24 => 5,  22 => 1,);
     }
 }

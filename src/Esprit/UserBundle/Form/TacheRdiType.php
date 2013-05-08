@@ -12,7 +12,9 @@ class TacheRdiType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('avancement')
+            ->add('avancement','choice', array(
+                    'choices' => array( '1' => 1, '2' => 2, '3' => 3,'4'=>4),
+                    'required' => false,))
             ->add('projet')    
         ;
     }

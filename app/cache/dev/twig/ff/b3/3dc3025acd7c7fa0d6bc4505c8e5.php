@@ -39,11 +39,8 @@ class __TwigTemplate_ffb33dc3025acd7c7fa0d6bc4505c8e5 extends Twig_Template
         </p>
     </form>
 
-        <ul class=\"record_actions\">
-    
-</ul>
  ";
-        // line 18
+        // line 15
         $this->displayBlock('javascripts', $context, $blocks);
     }
 
@@ -58,15 +55,15 @@ class __TwigTemplate_ffb33dc3025acd7c7fa0d6bc4505c8e5 extends Twig_Template
     ";
     }
 
-    // line 18
+    // line 15
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 19
+        // line 16
         echo "    ";
-        // line 21
+        // line 18
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
     <script type=\"text/javascript\" src=\"";
-        // line 22
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
         echo "\"></script>
   ";
@@ -84,6 +81,6 @@ class __TwigTemplate_ffb33dc3025acd7c7fa0d6bc4505c8e5 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  70 => 22,  67 => 21,  65 => 19,  62 => 18,  54 => 2,  51 => 1,  47 => 18,  35 => 9,  29 => 8,  23 => 4,  21 => 1,);
+        return array (  67 => 19,  64 => 18,  62 => 16,  59 => 15,  51 => 2,  48 => 1,  44 => 15,  35 => 9,  29 => 8,  23 => 4,  21 => 1,);
     }
 }

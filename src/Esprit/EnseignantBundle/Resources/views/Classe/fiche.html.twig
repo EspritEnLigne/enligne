@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Classe list</h1>
+<form action="{{ path('espetudiant_listetudiant') }}" method="post">
+       
+        <fieldset>
+     <select name="list">
+        {% for entity in entities %}
+   
+             <option value="{{entity.id}}">   {{ entity.libelle }}</option>
+        
+
+             
+              
+            
+        {% endfor %}
+          </select>
+            </fieldset>
+     <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul>
+        <li>
+            <a href="{{ path('classe_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

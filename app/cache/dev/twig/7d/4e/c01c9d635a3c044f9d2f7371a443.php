@@ -31,7 +31,7 @@ class __TwigTemplate_7d4ec01c9d635a3c044f9d2f7371a443 extends Twig_Template
     ";
         // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 10
+        // line 11
         echo "</head>
 <body>
     <div class=\"navbar navbar-fixed-top\">
@@ -41,27 +41,27 @@ class __TwigTemplate_7d4ec01c9d635a3c044f9d2f7371a443 extends Twig_Template
 
 
                 <a class=\"brand\" href=\"#\"><img src=\"";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/logo.png"), "html", null, true);
         echo "\"></a>
                      ";
-        // line 19
+        // line 20
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("AcmeDemoBundle:Demo:menu", array("max" => 3)));
         echo "
 
                      ";
-        // line 25
+        // line 26
         echo "                </div>
 
             </div>
         </div>
         ";
-        // line 29
-        $this->displayBlock('body', $context, $blocks);
         // line 30
+        $this->displayBlock('body', $context, $blocks);
+        // line 31
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 45
+        // line 48
         echo "    </body>
 </html>
 ";
@@ -81,33 +81,51 @@ class __TwigTemplate_7d4ec01c9d635a3c044f9d2f7371a443 extends Twig_Template
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("css/bootstrap.css"), "html", null, true);
         echo "\"
               type=\"text/css\" />
+        <link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css\" />
     ";
     }
 
-    // line 29
+    // line 30
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 30
+    // line 31
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 31
-        echo "        <script src=\"http://code.jquery.com/jquery-1.9.1.js\"></script>
+        // line 32
+        echo "                   <script src=\"http://code.jquery.com/jquery-1.9.1.js\"></script>
         <script src=\"http://code.jquery.com/ui/1.10.2/jquery-ui.js\"></script>
         <script>
        \$(function() {
        \$( \".date\" ).datepicker({dateFormat: 'dd/mm/yy'});
        });
             </script>
-    ";
-        // line 40
-        echo "            <script
-            src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
-            <script type=\"text/javascript\" src=\"";
+                    <script src=\"";
+        // line 39
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery.min.js"), "html", null, true);
+        echo "\"></script>
+
+
+                    <script type=\"text/javascript\" src=\"";
         // line 42
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
+        echo "\"></script>
+                    <script type=\"text/javascript\" src=\"";
         // line 43
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/shadowbox.js"), "html", null, true);
+        echo "\"></script>
+            <script src=\"";
+        // line 44
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery-1.9.1.js"), "html", null, true);
+        echo "\"></script>
+            <script src=\"";
+        // line 45
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery-ui.js"), "html", null, true);
+        echo "\"></script>
+            <script type=\"text/javascript\" src=\"";
+        // line 46
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery.ui.datepicker-fr.js"), "html", null, true);
         echo "\"></script>
   ";
     }
@@ -124,6 +142,6 @@ class __TwigTemplate_7d4ec01c9d635a3c044f9d2f7371a443 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  111 => 43,  109 => 42,  105 => 40,  96 => 31,  93 => 30,  88 => 29,  80 => 7,  77 => 6,  71 => 5,  65 => 45,  62 => 30,  60 => 29,  54 => 25,  49 => 19,  45 => 18,  35 => 10,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  128 => 46,  124 => 45,  120 => 44,  116 => 43,  112 => 42,  106 => 39,  97 => 32,  94 => 31,  89 => 30,  80 => 7,  77 => 6,  71 => 5,  65 => 48,  62 => 31,  60 => 30,  54 => 26,  49 => 20,  45 => 19,  35 => 11,  33 => 6,  29 => 5,  23 => 1,);
     }
 }

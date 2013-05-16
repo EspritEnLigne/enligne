@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+
+    <table class="records_list" style="margin-top: 100px;margin-left: 20px;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomet</th>
+                <th>Pnomet</th>
+                <th>Datenaiset</th>
+                <th>Lieunaiset</th>
+                <th>Natureet</th>
+                <th>Fonctionet</th>
+                <th>Adresseet</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+ {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('espetudiant_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nomEt }}</td>
+                <td>{{ entity.pnomEt }}</td>
+                <td>{% if entity.dateNaisEt %}{{ entity.dateNaisEt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.lieuNaisEt }}</td>
+                <td>{{ entity.natureEt }}</td>
+                <td>{{ entity.fonctionEt }}</td>
+                <td>{{ entity.fiche.sujet }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('espetudiant_show', { 'id': entity.id }) }}">Gérer sa fiche</a>
+                    </li>
+                  
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+  </tbody>
+    </table>
+{% endblock %}

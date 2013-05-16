@@ -28,6 +28,76 @@ class EspEtudiantController extends Controller
             'entities' => $entities,
         ));
     }
+ /**
+     * Lists all EspEtudiant entities.
+     *
+     */
+    public function listByClasseAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('EspritUserBundle:EspEtudiant')->findByclasse($id);
+
+        return $this->render('EspritUserBundle:EspEtudiant:listebyclasse.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
+    /**
+     * Lists all EspEtudiant entities.
+     *
+     */
+    public function ficheAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('EspritEnseignantBundle:Classe')->findAll();
+
+        return $this->render('EspritEnseignantBundle:Classe:fiche.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
+    public function  listetudiantAction(){
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('EspritUserBundle:EspEtudiant')->findByclasse($_POST['list']);
+        return $this->render('EspritUserBundle:EspEtudiant:listetudiant.html.twig', array(
+            'entities' => $entities,
+        ));
+
+        
+    }
+ public function  ficheeleveAction(){
+         $id="12-ESP-20";
+        
+        $em = $this->getDoctrine()->getManager();
+        $entit= $em->getRepository('EspritEnseignantBundle:Absence')->findByetudiant($id);
+        
+        $entity= $em->getRepository('EspritUserBundle:EspEtudiant')->find($id);
+         if (!$entity) {
+            throw $this->createNotFoundException('Unable to find EspEtudiant entity.');
+        }
+       $editForm = $this->createForm(new EspEtudiantType(), $entity);
+      
+        $deleteForm = $this->createDeleteForm($id);
+        return $this->render('EspritUserBundle:EspEtudiant:ficheeleve.html.twig', array(
+            'entity' => $entity,
+            'entit'=>$entit,
+             'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),        ));
+        
+    }
+    public function Absence (array $a,array $b){
+        
+        foreach( $a as $matiere ) {
+          foreach( $b as $absence ) {
+            
+            
+        }  
+            
+        }
+        
+        
+    }
 
     /**
      * Creates a new EspEtudiant entity.

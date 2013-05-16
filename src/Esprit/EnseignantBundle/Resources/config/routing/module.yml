@@ -1,0 +1,30 @@
+module:
+    pattern:  /
+    defaults: { _controller: "EspritEnseignantBundle:Module:index" }
+
+module_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EspritEnseignantBundle:Module:show" }
+
+module_new:
+    pattern:  /new
+    defaults: { _controller: "EspritEnseignantBundle:Module:new" }
+
+module_create:
+    pattern:  /create
+    defaults: { _controller: "EspritEnseignantBundle:Module:create" }
+    requirements: { _method: post }
+
+module_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EspritEnseignantBundle:Module:edit" }
+
+module_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EspritEnseignantBundle:Module:update" }
+    requirements: { _method: post|put }
+
+module_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EspritEnseignantBundle:Module:delete" }
+    requirements: { _method: post|delete }

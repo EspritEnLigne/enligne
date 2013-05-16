@@ -87,6 +87,12 @@ class FichePfe extends \Esprit\UserBundle\Entity\FichePfe implements \Doctrine\O
         return parent::getEtudiant();
     }
 
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
 
     public function __sleep()
     {

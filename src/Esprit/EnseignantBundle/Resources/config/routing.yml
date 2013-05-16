@@ -1,0 +1,15 @@
+esprit_enseignant_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EspritEnseignantBundle:Default:index }
+EspritEnseignantBundle_absence:
+    resource: "@EspritEnseignantBundle/Resources/config/routing/absence.yml"
+    prefix:   /absence
+EspritEnseignantBundle_matiere:
+    resource: "@EspritEnseignantBundle/Resources/config/routing/matiere.yml"
+    prefix:   /matiere
+EspritEnseignantBundle_classe:
+    resource: "@EspritEnseignantBundle/Resources/config/routing/classe.yml"
+    prefix:   /classe
+EspritEnseignantBundle_module:
+    resource: "@EspritEnseignantBundle/Resources/config/routing/module.yml"
+    prefix:   /module

@@ -117,4 +117,7 @@ class FichePfe
     {
         return $this->etudiant;
     }
+    public function __toString() {
+        return $this->getSujet();
+    }
 }

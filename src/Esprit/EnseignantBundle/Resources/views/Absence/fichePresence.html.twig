@@ -1,0 +1,59 @@
+<form id="fichePresence">
+    <table>
+        <tr>
+
+            <th>Classe:</th>
+            <td>
+                <select id="classeFiche">
+                    <option value=""></option>
+                    {% for classe in classes %}
+                    <option value="{{ classe.id }}">{{ classe.libelle }}</option>
+                    {% endfor %}
+                </select>
+            </td>               
+            <th>Matiere:</th>
+            <td>    
+                <select id="list_matiereFiche" url="{{ path('get_fiche') }}">
+
+                </select>
+            </td>
+        </tr>
+    </table>
+        <div id="listEtudiantPresence">
+        </div>
+</form>
+
+<script src="{{ asset('js/jquery-1.9.1.js')}}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
+
+<script>
+    $('#classeFiche').change(function(){
+//        var url = $(this).attr("url");
+        var classe = $(this).val();
+if(classe==""){alert('selectionner une classe');}
+else{
+        $.post("{{ path('get_matierefiche') }}",{
+           classe: classe
+    },function(data){
+                        
+                $('#list_matiereFiche').empty();
+                $('#list_matiereFiche').append(data.list);
+                //$('#matiere').show();
+
+    },"json");
+    }
+});
+$('#list_matiereFiche').change(function(){
+    var matiere=$(this).val();
+    var classe=$('#classeFiche').val();
+    var url=$(this).attr('url');
+    $.post(url,
+    {
+        classe:classe,
+        matiere:matiere
+    },function(data){
+        $('#listEtudiantPresence').empty();
+        $('#listEtudiantPresence').append(data.fiche);
+    },"json");
+});
+</script>

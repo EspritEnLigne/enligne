@@ -261,6 +261,84 @@ class EspEnseignant extends \Esprit\UserBundle\Entity\EspEnseignant implements \
         return parent::getDatesortie();
     }
 
+    public function addAbsencelist(\Esprit\EnseignantBundle\Entity\AbsenceList $absencelist)
+    {
+        $this->__load();
+        return parent::addAbsencelist($absencelist);
+    }
+
+    public function removeAbsencelist(\Esprit\EnseignantBundle\Entity\AbsenceList $absencelist)
+    {
+        $this->__load();
+        return parent::removeAbsencelist($absencelist);
+    }
+
+    public function getAbsencelist()
+    {
+        $this->__load();
+        return parent::getAbsencelist();
+    }
+
+    public function addAbsence(\Esprit\EnseignantBundle\Entity\Absence $absences)
+    {
+        $this->__load();
+        return parent::addAbsence($absences);
+    }
+
+    public function removeAbsence(\Esprit\EnseignantBundle\Entity\Absence $absences)
+    {
+        $this->__load();
+        return parent::removeAbsence($absences);
+    }
+
+    public function getAbsences()
+    {
+        $this->__load();
+        return parent::getAbsences();
+    }
+
+    public function addMatiere(\Esprit\EnseignantBundle\Entity\Matiere $matieres)
+    {
+        $this->__load();
+        return parent::addMatiere($matieres);
+    }
+
+    public function removeMatiere(\Esprit\EnseignantBundle\Entity\Matiere $matieres)
+    {
+        $this->__load();
+        return parent::removeMatiere($matieres);
+    }
+
+    public function getMatieres()
+    {
+        $this->__load();
+        return parent::getMatieres();
+    }
+
+    public function addClasse(\Esprit\EnseignantBundle\Entity\Classe $classes)
+    {
+        $this->__load();
+        return parent::addClasse($classes);
+    }
+
+    public function removeClasse(\Esprit\EnseignantBundle\Entity\Classe $classes)
+    {
+        $this->__load();
+        return parent::removeClasse($classes);
+    }
+
+    public function getClasses()
+    {
+        $this->__load();
+        return parent::getClasses();
+    }
+
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
     public function addCursu(\Esprit\UserBundle\Entity\EspEnseignant $cursus)
     {
         $this->__load();
@@ -336,7 +414,7 @@ class EspEnseignant extends \Esprit\UserBundle\Entity\EspEnseignant implements \
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'cursus', 'conges', 'encadrement', 'projetrdi');
+        return array('__isInitialized__', 'id', 'nomEns', 'typeEns', 'civilite', 'cin', 'cnss', 'tel1', 'tel2', 'datenaissance', 'datentree', 'datesortie', 'dateRec', 'niveau', 'dateSaisie', 'dateDernModif', 'etat', 'observation', 'pwdEns', 'absencelist', 'absences', 'matieres', 'classes', 'cursus', 'conges', 'encadrement', 'projetrdi');
     }
 
     public function __clone()

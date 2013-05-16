@@ -1,0 +1,40 @@
+show_classetudiant:
+    pattern:  /ajouterAbsence
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:ajouterAbsence" }
+get_matiere:
+    pattern: /getMatiere
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:getMatiere" }
+    requirements: { _method: POST }    
+get_classe:
+    pattern: /getClasse
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:getClasse" }
+    requirements: { _method: GET }
+valider_absence:
+    pattern: /validerAbsence
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:validerAbsence" }
+    requirements: { _method: POST }
+
+#modifier Absence
+show_absences:
+    pattern:  /modifierAbsence
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:modifierAbsence" }
+get_absences:
+    pattern: /getAbsence
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:getAbsence" }
+valider_modifabsence:
+    pattern: /validerModifierAbsence
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:validerModifierAbsence" }
+    requirements: { _method: POST }
+
+#fiche Presence
+show_fiche:
+    pattern:  /fichePresence
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:fichePresence" }
+get_matierefiche:
+    pattern: /getMatiereFiche
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:getMatiereFiche" }
+    requirements: { _method: POST }    
+get_fiche:
+    pattern: /getFiche
+    defaults: { _controller: "EspritEnseignantBundle:AbsenceProf:getFiche" }
+    requirements: { _method: POST }

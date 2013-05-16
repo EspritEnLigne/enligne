@@ -1,11 +1,21 @@
 espetudiant:
     pattern:  /
     defaults: { _controller: "EspritUserBundle:EspEtudiant:index" }
-
+espetudiant:
+    pattern:  /ficheetudiant
+    defaults: { _controller: "EspritUserBundle:EspEtudiant:fiche" }
+esp_ficheeleve:
+    pattern:  /ficheeleve
+    defaults: { _controller: "EspritUserBundle:EspEtudiant:ficheeleve" }
+espetudiant_listetudiant:
+    pattern:  /listetudiant
+    defaults: { _controller: "EspritUserBundle:EspEtudiant:listetudiant" }
 espetudiant_show:
     pattern:  /{id}/show
     defaults: { _controller: "EspritUserBundle:EspEtudiant:show" }
-
+espetudiant_listebyclasse:
+    pattern:  /{id}/listebyclasse
+    defaults: { _controller: "EspritUserBundle:EspEtudiant:listByClasse" }
 espetudiant_new:
     pattern:  /new
     defaults: { _controller: "EspritUserBundle:EspEtudiant:new" }

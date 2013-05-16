@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Gestion d'Absences</a></li>
+        <li><a href="#tab2" data-toggle="tab">Absence par module</a></li>
+        <li><a href="#tab3" data-toggle="tab">Remarques d'enseignant</a></li>
+        <li><a href="#tab4" data-toggle="tab">Feuille des notes</a></li>
+        <li><a href="#tab5" data-toggle="tab">Informations</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+            <p>Gestion d'Absences</p>
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1-1" data-toggle="tab">Ajouter Absences</a></li>
+                    <li><a href="#tab1-2" data-toggle="tab">Modifier Absence</a></li>
+                    <li><a href="#tab1-3" data-toggle="tab">Fiche de Presence</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1-1">
+                        <p>Ajouter Absences</p>
+            {{ render(controller('EspritEnseignantBundle:AbsenceProf:ajouterAbsence', { 'max': 3 })) }}
+                    </div>
+                    <div class="tab-pane" id="tab1-2">
+                        <p>Modifier Absence</p>
+            {{ render(controller('EspritEnseignantBundle:AbsenceProf:modifierAbsence', { 'max': 3 })) }}
+                    </div>
+                    <div class="tab-pane" id="tab1-3">
+                        <p>Fiche de presence</p>
+            {{ render(controller('EspritEnseignantBundle:AbsenceProf:fichePresence', { 'max': 3 })) }}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="tab2">
+            <p>Absence par module</p>
+        </div>
+        <div class="tab-pane" id="tab3">
+            <p>Remarques d'enseignant</p>
+        </div>
+        <div class="tab-pane" id="tab4">
+            <p>Feuille des notes</p>
+        </div>
+        <div class="tab-pane" id="tab5">
+            <p>Informations</p>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/shadowbox.js') }}"></script>
+ {#       <script src="{{ asset('js/jquery-1.9.1.js')}}"></script>
+        <script src="{{ asset('js/jquery-ui.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.ui.datepicker-fr.js') }}"></script>#}
+
+{% endblock %}

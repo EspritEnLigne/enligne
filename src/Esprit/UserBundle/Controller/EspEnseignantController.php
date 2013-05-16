@@ -49,6 +49,13 @@ class EspEnseignantController extends Controller
              'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),        ));
     }
+ public function absenceAction()
+    {    
+        
+      
+       
+        return $this->render('EspritEnseignantBundle::layout.html.twig' );
+    }
 
      /**
      * Creates a new News entity.

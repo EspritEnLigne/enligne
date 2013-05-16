@@ -9,6 +9,9 @@ espenseignant_show:
 espenseignant_new:
     pattern:  /new
     defaults: { _controller: "EspritUserBundle:EspEnseignant:new" }
+espenseignant_absence:
+    pattern:  /espabsence
+    defaults: { _controller: "EspritUserBundle:EspEnseignant:absence" }
 
 espenseignant_create:
     pattern:  /create

@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Esprit\UserBundle\EspritUserBundle(),
             new Esprit\RubriqueBundle\EspritRubriqueBundle(),
+            new Esprit\EnseignantBundle\EspritEnseignantBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CacheBundle\SonataCacheBundle(),

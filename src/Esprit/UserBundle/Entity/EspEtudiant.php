@@ -12,11 +12,24 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class EspEtudiant
 {
+       /**
+     * @ORM\OneToMany(targetEntity="Esprit\EnseignantBundle\Entity\Absence", mappedBy="etudiant")
+     */
+    private $absences;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Esprit\EnseignantBundle\Entity\Classe",inversedBy="etudiants")
+     * @ORM\JoinColumn(name="classe_id", referencedColumnName="id")
+     */
+    private $classe;
+
     
      /**
      * @ORM\OneToMany(targetEntity="Esprit\SeminaireBundle\Entity\InscritSemin",mappedBy="etudiant",cascade={"persist"})
      */
     private $inscriptions;
+    
+    
     /**
      * @var string
      *
@@ -315,6 +328,62 @@ class EspEtudiant
         return $this->getId();
     }
 
+    /**
+     * Add absences
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Absence $absences
+     * @return EspEtudiant
+     */
+    public function addAbsence(\Esprit\EnseignantBundle\Entity\Absence $absences)
+    {
+        $this->absences[] = $absences;
+    
+        return $this;
+    }
+
+    /**
+     * Remove absences
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Absence $absences
+     */
+    public function removeAbsence(\Esprit\EnseignantBundle\Entity\Absence $absences)
+    {
+        $this->absences->removeElement($absences);
+    }
+
+    /**
+     * Get absences
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAbsences()
+    {
+        return $this->absences;
+    }
+
+    /**
+     * Set classe
+     *
+     * @param \Esprit\EnseignantBundle\Entity\Classe $classe
+     * @return EspEtudiant
+     */
+    public function setClasse(\Esprit\EnseignantBundle\Entity\Classe $classe = null)
+    {
+        $this->classe = $classe;
+    
+        return $this;
+    }
+
+    /**
+     * Get classe
+     *
+     * @return \Esprit\EnseignantBundle\Entity\Classe 
+     */
+    public function getClasse()
+    {
+        return $this->classe;
+    }
+    
     /**
      * Set espens
      *

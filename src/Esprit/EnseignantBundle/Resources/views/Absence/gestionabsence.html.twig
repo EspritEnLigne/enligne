@@ -1,0 +1,70 @@
+ {% block stylesheets %}
+                <link rel="stylesheet" href="{{ asset('css/zoombox.css') }}" type="text/css" media="all" />
+              
+{% endblock %}  
+                
+{% block body -%}
+<h1>Relévé  complet des absences</h1>
+
+   <table class="table table-bordered table-striped table-condensed table-hover" style="width: 100%; ">
+         <thead>
+            <tr>
+                <th>Date</th>
+                 <th>Heure d'absence</th>
+                 <th>Matiere</th>
+                  <th>Enseingant</th>
+                <th>Justifier</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entit %}
+            <tr>
+               <td>{% if entity.dateSaisie %}{{ entity.dateSaisie|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.heureAbsence }}</td>
+               <td>{{ entity.matiere.libelle }}</td>
+                <td>{{ entity.enseignant.nomEns }}</td>
+               {%if entity.justifier==1%}
+                <td>Absence justifié</td>
+                {%else%}
+                 <td>Absence non justifié</td>
+                                 {%endif%}
+                <td>
+                <ul>
+                 
+                        <a class="btn btn-danger" href="{{ path('absence_show', { 'id': entity.id }) }}">delete</a>
+               
+                   
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}
+ {% block javascripts %}
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+           <script src="{{ asset('js/zoombox.js') }}" type="text/javascript"></script>
+            <script type="text/javascript">
+    jQuery(function($){
+           
+            $('a.btn').zoombox({
+                    theme       : 'prettyphoto',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
+                opacity     : 0.8,              // Black overlay opacity
+              //  duration    : 800,              // Animation duration
+               animation   : true,             // Do we have to animate the box ?
+                width       : 650,              // Default width
+                height      : 400,              // Default height
+                gallery     : true,             // Allow gallery thumb view
+                autoplay : false                // Autoplay for video
+            });
+            
+        });     
+        
+    </script>
+           
+ {% endblock %}
+
+       
+

@@ -19,7 +19,8 @@ class EspEtudiantType extends AbstractType
             ->add('natureEt')
             ->add('fonctionEt')
             ->add('adresseEt')
-            ->add('fiche',new FichePfeType())
+            ->add('fiche')
+            ->add('classe')    
         ;
     }
 
